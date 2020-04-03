@@ -92317,7 +92317,7 @@
 											"top": 127,
 											"width": 95.72900390625,
 											"height": 13,
-											"text": "CatMatières"
+											"text": "CMatières"
 										},
 										{
 											"_type": "LabelView",
@@ -93047,10 +93047,10 @@
 							},
 							"font": "Arial;13;0",
 							"left": 8,
-							"top": 160,
+							"top": 152,
 							"width": 457,
 							"height": 145,
-							"text": "CatMatières contient 2 liste qui contient un titre et un niveau lié à celui ci.\nPar exemple : \nMath - 2éme secondaire\nScience - 5éme secondaire\nC# - 3éme Bachelier\n\n( Le prof ne choisis qu'un niveau, le plus haut pour lui )\n\nLa catalogue contriendra une liste a l'ouverture du site, les utilsateurs pourront demander à ajouter des éléments si besoin."
+							"text": "CMatières contient 2 liste qui contient un titre et un niveau lié à celui ci.\nPar exemple : \nMath - 2éme secondaire\nScience - 5éme secondaire\nC# - 3éme Bachelier\n\n( Le prof ne choisis qu'un niveau, le plus haut pour lui )\n\nLa catalogue contriendra une liste a l'ouverture du site, les utilsateurs pourront demander à ajouter des éléments si besoin."
 						},
 						{
 							"_type": "UMLAssociationView",
@@ -98813,7 +98813,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "CatMatières",
+					"name": "CMatières",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",
