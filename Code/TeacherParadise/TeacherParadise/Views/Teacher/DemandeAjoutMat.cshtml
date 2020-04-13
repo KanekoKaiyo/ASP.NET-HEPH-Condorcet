@@ -1,0 +1,35 @@
+﻿@model TeacherParadise.Models.CMatieres
+
+@{
+    ViewData["Title"] = "DemandeAjoutMat";
+}
+
+<h1>DemandeAjoutMat</h1>
+
+<h4>CMatieres</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="DemandeAjoutMat">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Titre" class="control-label"></label>
+                <input asp-for="Titre" class="form-control" />
+                <span asp-validation-for="Titre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Niveau" class="control-label"></label>
+                <input asp-for="Niveau" class="form-control" />
+                <span asp-validation-for="Niveau" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
