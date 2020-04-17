@@ -14,18 +14,24 @@ namespace TeacherParadise.Controllers {
         public HomeController(ILogger<HomeController> logger) {
             _logger = logger;
         }
-
         public IActionResult Index() {
             return View();
         }
-
-        public IActionResult Privacy() {
-            return View();
-        }
-
         [ResponseCache(Duration = 0,Location = ResponseCacheLocation.None,NoStore = true)]
         public IActionResult Error() {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        // My Controller
+        public IActionResult TeacherInscription() {
+            return View();
+        }
+        public IActionResult TeacherAdded() {
+            if(ModelState.IsValid) {
+                TempData["Success"] = true;
+                return View();
+            } else {
+                return RedirectToAction(nameof(TeacherInscription));
+            }
         }
     }
 }

@@ -31,13 +31,15 @@ namespace TeacherParadise.Models {
         [Display(Name = "Mot de passe")]
         [Required(ErrorMessage = "Le mot de passe est obligatoire")]
         [DataType(DataType.Password)]
+        [StringLength(20,ErrorMessage ="Le {0} doit avoir au moins {2} de long",MinimumLength = 8)]
+        [RegularExpression("^((?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])|(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[^a-zA-Z0-9])|(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[^a-zA-Z0-9])|(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^a-zA-Z0-9])).{8,}$",ErrorMessage = "Le mot de passe doit avoir au moins 8 characteres et contenir 3 des 4 conditions suivante: Majuscule (A-Z), Minuscule (a-z), Chiffre (0-9) Et caractéres spéciaux (e.g. !@#$%^&*)")]
         public string Password { get; set; }
+
 
         [Display(Name = "Numéro de téléphone")]
         [Required(ErrorMessage = "Le numéro de téléhpone est obligatoire")]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
-
 
 
         //Methods

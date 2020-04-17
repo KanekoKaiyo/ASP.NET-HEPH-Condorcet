@@ -97162,8 +97162,8 @@
 								"$ref": "AAAAAAFxMFFWNDlF4Eo="
 							},
 							"font": "Arial;13;0",
-							"left": 1560,
-							"top": 40,
+							"left": 1592,
+							"top": 32,
 							"width": 288,
 							"height": 80,
 							"text": "Mikel : Vert\nCardinalité"
@@ -97221,6 +97221,7 @@
 												"$ref": "AAAAAAFxXlZuyeYXJ5s="
 											},
 											"visible": false,
+											"fillColor": "#00ff00",
 											"font": "Arial;13;0",
 											"left": 128,
 											"top": -80,
@@ -97232,6 +97233,7 @@
 											"_parent": {
 												"$ref": "AAAAAAFxXlZuyeYXJ5s="
 											},
+											"fillColor": "#00ff00",
 											"font": "Arial;13;1",
 											"left": 1261,
 											"top": 47,
@@ -97246,6 +97248,7 @@
 												"$ref": "AAAAAAFxXlZuyeYXJ5s="
 											},
 											"visible": false,
+											"fillColor": "#00ff00",
 											"font": "Arial;13;0",
 											"left": 128,
 											"top": -80,
@@ -97260,6 +97263,7 @@
 												"$ref": "AAAAAAFxXlZuyeYXJ5s="
 											},
 											"visible": false,
+											"fillColor": "#00ff00",
 											"font": "Arial;13;0",
 											"left": 128,
 											"top": -80,
@@ -97267,6 +97271,7 @@
 											"horizontalAlignment": 1
 										}
 									],
+									"fillColor": "#00ff00",
 									"font": "Arial;13;0",
 									"left": 1256,
 									"top": 40,
@@ -97304,6 +97309,7 @@
 											"model": {
 												"$ref": "AAAAAAFxXlaVkujTwhM="
 											},
+											"fillColor": "#00ff00",
 											"font": "Arial;13;0",
 											"left": 1261,
 											"top": 70,
@@ -97321,6 +97327,7 @@
 											"model": {
 												"$ref": "AAAAAAFxXlafrunhm0o="
 											},
+											"fillColor": "#00ff00",
 											"font": "Arial;13;0",
 											"left": 1261,
 											"top": 85,
@@ -97330,6 +97337,7 @@
 											"horizontalAlignment": 0
 										}
 									],
+									"fillColor": "#00ff00",
 									"font": "Arial;13;0",
 									"left": 1256,
 									"top": 65,
@@ -97355,6 +97363,7 @@
 											"model": {
 												"$ref": "AAAAAAFxXlbcTuzgYwA="
 											},
+											"fillColor": "#00ff00",
 											"font": "Arial;13;0",
 											"left": 1261,
 											"top": 108,
@@ -97364,6 +97373,7 @@
 											"horizontalAlignment": 0
 										}
 									],
+									"fillColor": "#00ff00",
 									"font": "Arial;13;0",
 									"left": 1256,
 									"top": 103,
@@ -97380,6 +97390,7 @@
 										"$ref": "AAAAAAFxXlZux+YUxag="
 									},
 									"visible": false,
+									"fillColor": "#00ff00",
 									"font": "Arial;13;0",
 									"left": 64,
 									"top": -40,
@@ -97396,6 +97407,7 @@
 										"$ref": "AAAAAAFxXlZux+YUxag="
 									},
 									"visible": false,
+									"fillColor": "#00ff00",
 									"font": "Arial;13;0",
 									"left": 64,
 									"top": -40,
@@ -97403,6 +97415,7 @@
 									"height": 10
 								}
 							],
+							"fillColor": "#00ff00",
 							"font": "Arial;13;0",
 							"containerChangeable": true,
 							"left": 1256,

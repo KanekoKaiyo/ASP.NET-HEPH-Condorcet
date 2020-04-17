@@ -1,0 +1,85 @@
+﻿@model TeacherParadise.Models.CProfesseur
+@{
+    ViewData["Title"] = "Inscription en tant que professeur";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="TeacherAdded">
+    <table>
+        <tr>
+            <td>
+                <label asp-for="LastName"></label>
+            </td>
+            <td>
+                <input asp-for="LastName" />
+            </td>
+            <td>
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Surname"></label>
+            </td>
+            <td>
+                <input asp-for="Surname" />
+            </td>
+            <td>
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="DoB"></label>
+            </td>
+            <td>
+                <input asp-for="DoB" />
+            </td>
+            <td>
+                <span asp-validation-for="DoB" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Email"></label>
+            </td>
+            <td>
+                <input asp-for="Email" />
+            </td>
+            <td>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Password"></label>
+            </td>
+            <td>
+                <input asp-for="Password" />
+            </td>
+            <td>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="PhoneNumber"></label>
+            </td>
+            <td>
+                <input asp-for="PhoneNumber" />
+            </td>
+            <td>
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a asp-action="Index"> Retour </a>
+            </td>
+            <td colspan="2">
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+</form>

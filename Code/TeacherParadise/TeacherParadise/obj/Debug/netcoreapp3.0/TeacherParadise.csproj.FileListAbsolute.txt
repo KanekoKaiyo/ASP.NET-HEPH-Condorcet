@@ -124,14 +124,8 @@ D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\TeacherParadise.dll
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\TeacherParadise.pdb
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\Index.cshtml.g.cs
-D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\EditProfil.cshtml.g.cs
-D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\DemandeAjoutMat.cshtml.g.cs
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\AfficheConge.cshtml.g.cs
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\AjoutConge.cshtml.g.cs
-D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\CoursCollectif.cshtml.g.cs
-D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\CoursRemediation.cshtml.g.cs
-D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\CourCollectif.cshtml.g.cs
-D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\CourRemediation.cshtml.g.cs
-D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\EditCourCollectif.cshtml.g.cs
-D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\EditCourRemediation.cshtml.g.cs
-D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\DeleteCourCollectif.cshtml.g.cs
+D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Home\TeacherInscription.cshtml.g.cs
+D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Home\test.cshtml.g.cs
+D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Home\TeacherAdded.cshtml.g.cs
