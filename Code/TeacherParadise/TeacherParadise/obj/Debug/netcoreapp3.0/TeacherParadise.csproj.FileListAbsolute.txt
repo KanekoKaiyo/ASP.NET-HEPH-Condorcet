@@ -127,5 +127,4 @@ D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\AfficheConge.cshtml.g.cs
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\AjoutConge.cshtml.g.cs
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Home\TeacherInscription.cshtml.g.cs
-D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Home\test.cshtml.g.cs
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Home\TeacherAdded.cshtml.g.cs

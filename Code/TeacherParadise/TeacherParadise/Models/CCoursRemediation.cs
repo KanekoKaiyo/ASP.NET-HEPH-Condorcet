@@ -17,7 +17,7 @@ namespace TeacherParadise.Models {
         [Display(Name = "Heure de début")]
         [Required(ErrorMessage = "L'heure de début est obligatoire")]
         [DataType(DataType.Time)]
-        public DateTime Starthour { get; set; }
+        public DateTime StartHour { get; set; }
 
         [Display(Name = "Heure de fin")]
         [Required(ErrorMessage = "L'heure de fin est obligatoire")]
@@ -31,19 +31,19 @@ namespace TeacherParadise.Models {
 
         
         //Constructeur
-        public CCoursRemediation(DateTime date, DateTime starthour,DateTime endhour, CProfesseur professeur) {
+        public CCoursRemediation(DateTime date, DateTime startHour,DateTime endHour) {
             this.Date = date;
-            this.Starthour = starthour;
-            this.EndHour = endhour;
+            this.StartHour = startHour;
+            this.EndHour = endHour;
             this.Status = "Open";
-            this.Professeur = professeur;
+            // this.Professeur = professeur;
         }
 
         //Methods
-        public void ModifierCoursR(DateTime date,DateTime starthour,DateTime endhour,string status) {
+        public void ModifierCoursR(DateTime date,DateTime startHour,DateTime endHour,string status) {
             this.Date = date;
-            this.Starthour = starthour;
-            this.EndHour = endhour;
+            this.StartHour = startHour;
+            this.EndHour = endHour;
             this.Status = status;
         }
         public void SuppressionCoursR() {

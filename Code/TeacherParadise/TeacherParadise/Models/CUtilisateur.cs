@@ -19,7 +19,7 @@ namespace TeacherParadise.Models {
         [Display(Name = "Prénom")]
         [Required(ErrorMessage = "Le prénom est obligatoire")]
         [StringLength(20,MinimumLength = 3)]
-        public string Surname { get; set; }
+        public string SurName { get; set; }
 
         [Display(Name = "Date de naissance")]
         [Required(ErrorMessage = "La date de naissance est obligatoire")]

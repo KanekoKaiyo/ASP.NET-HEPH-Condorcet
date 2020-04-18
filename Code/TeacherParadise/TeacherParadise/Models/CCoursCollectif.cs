@@ -42,13 +42,13 @@ namespace TeacherParadise.Models {
         public virtual CProfesseur Professeur { get; set; }
 
         //Constructeur
-        public CCoursCollectif(string titre, string description, DateTime date, DateTime starthour, double totalhour, double prix) {
+        public CCoursCollectif(string titre, string description, DateTime date, DateTime starthour, double totalHour, double prix) {
             this.Titre = titre;
             this.Description = description;
             //this.Matieres = matiere;
             this.Date = date;
             this.Starthour = starthour;
-            this.TotalHour = totalhour;
+            this.TotalHour = totalHour;
             this.Prix = prix;
             //this.Professeur = professeur;
         }

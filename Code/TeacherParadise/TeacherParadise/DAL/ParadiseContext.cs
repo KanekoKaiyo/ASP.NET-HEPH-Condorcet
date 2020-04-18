@@ -11,7 +11,7 @@ namespace TeacherParadise.DAL {
         // DbSet<Model a utilisé> Non de la table
         public DbSet<CProfesseur> Professeurs { get; set; }
         public DbSet<CCoursCollectif> CoursCollectifs { get; set; }
-        public DbSet<CatCoursRemediation> CoursRemediations { get; set; }
+        public DbSet<CCoursRemediation> CoursRemediations { get; set; }
         public DbSet<CMatieres> Matieres { get; set; }
 
         // Constructeur

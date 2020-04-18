@@ -10,25 +10,25 @@ namespace TeacherParadise.Models {
         public List<CMatieres> Matieres { get; set; }
         public List<CCoursCollectif> CoursCollectifs { get; set; }
         public List<CCoursRemediation> CoursRemediations { get; set; }
-        public List<DateTime> ListeConge { get; set; }
+        // public List<DateTime> ListeConge { get; set; }
         // Constructor
-        public CProfesseur(string lastname,string surname,DateTime dob,string email,string password,string phonenumber) {
-            this.LastName = lastname;
-            this.Surname = surname;
-            this.DoB = dob;
+        public CProfesseur(string lastName,string surName,DateTime doB,string email,string password,string phoneNumber) {
+            this.LastName = lastName;
+            this.SurName = surName;
+            this.DoB = doB;
             this.Email = email;
             this.Password = password;
-            this.PhoneNumber = phonenumber;
+            this.PhoneNumber = phoneNumber;
             Matieres = new List<CMatieres>();
             CoursCollectifs = new List<CCoursCollectif>();
             CoursRemediations = new List<CCoursRemediation>();
-            ListeConge = new List<DateTime>();
+            // ListeConge = new List<DateTime>();
         }
 
         // Methods
         public override void ModifierProfil(string lastname,string surname,DateTime dob,string email,string password,string phonenumber) {
             this.LastName = lastname;
-            this.Surname = surname;
+            this.SurName = surname;
             this.DoB = dob;
             this.Email = email;
             this.Password = password;
@@ -50,7 +50,7 @@ namespace TeacherParadise.Models {
             CoursRemediations.Add(c);
         }
         public void AddConge(DateTime d) {
-            ListeConge.Add(d);
+            // ListeConge.Add(d);
         }
         // Part 2 Removing
         public void RemoveCMatieres(CMatieres m) {
@@ -63,7 +63,7 @@ namespace TeacherParadise.Models {
             CoursRemediations.Remove(c);
         }
         public void RemoveConge(DateTime d) {
-            ListeConge.Remove(d);
+            // ListeConge.Remove(d);
         }
     }
 }
