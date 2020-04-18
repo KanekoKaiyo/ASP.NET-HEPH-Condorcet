@@ -25,7 +25,7 @@ namespace TeacherParadise.Controllers {
         public IActionResult TeacherInscription() {
             return View();
         }
-        public IActionResult TeacherAdded() {
+        public IActionResult TeacherAdded(CProfesseur professeur) {
             if(ModelState.IsValid) {
                 TempData["Success"] = true;
                 return View();
