@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace TeacherParadise.Models {
     public class CMatieres {
+        [Key]
+        public int ID { get; set; }
         public string Titre { get; set; }
         public string Niveau { get; set; }
 

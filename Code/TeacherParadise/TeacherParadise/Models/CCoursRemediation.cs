@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace TeacherParadise.Models {
     public class CCoursRemediation {
+        [Key]
+        public int ID { get; set; }
         //Attributs
         [Display(Name = "Date du cours")]
         [Required(ErrorMessage = "La date du cours est obligatoire")]
@@ -25,7 +27,7 @@ namespace TeacherParadise.Models {
         [Display(Name = "Status")]
         public string Status { get; set; }
 
-        public CProfesseur Professeur { get; set; }
+        public virtual CProfesseur Professeur { get; set; }
 
         
         //Constructeur

@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace TeacherParadise.Models {
     public class CCoursCollectif {
         //Attributs
+        [Key]
+        public int ID { get; set; }
         [Display(Name = "Titre du cours")]
         [Required(ErrorMessage = "Le titre du cours est obligatoire")]
         public string Titre { get; set; }
@@ -37,18 +39,18 @@ namespace TeacherParadise.Models {
         [Required(ErrorMessage = "Le prix du cours est obligatoire")]
         public double Prix { get; set; }
 
-        public CProfesseur Professeur { get; set; }
+        public virtual CProfesseur Professeur { get; set; }
 
         //Constructeur
-        public CCoursCollectif(string titre, string description, CMatieres matiere, DateTime date, DateTime starthour, double totalhour, double prix, CProfesseur professeur) {
+        public CCoursCollectif(string titre, string description, DateTime date, DateTime starthour, double totalhour, double prix) {
             this.Titre = titre;
             this.Description = description;
-            this.Matieres = matiere;
+            //this.Matieres = matiere;
             this.Date = date;
             this.Starthour = starthour;
             this.TotalHour = totalhour;
             this.Prix = prix;
-            this.Professeur = professeur;
+            //this.Professeur = professeur;
         }
 
         //Methods

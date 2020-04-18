@@ -8,6 +8,9 @@ namespace TeacherParadise.Models {
     abstract public class CUtilisateur {
 
         // Attributs
+        [Key]
+        public int ID { get; set; }
+
         [Display(Name = "Nom")]
         [Required(ErrorMessage ="Le nom de famille est obligatoire")]
         [StringLength(20,MinimumLength = 3)]
