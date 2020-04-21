@@ -15,7 +15,7 @@ namespace TeacherParadise.Controllers
         public IActionResult EditProfil() {
             return View();
         }
-        public IActionResult CoursCollectif() {
+        public IActionResult AjoutCourCollectif() {
             return View();
         }
     }

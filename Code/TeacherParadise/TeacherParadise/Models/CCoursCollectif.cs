@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace TeacherParadise.Models {
     public class CCoursCollectif {
+
+        public int ID { get; set; }
+
         //Attributs
         [Display(Name = "Titre du cours")]
         [Required(ErrorMessage = "Le titre du cours est obligatoire")]
@@ -27,11 +30,8 @@ namespace TeacherParadise.Models {
         [Display(Name = "Heure de début")]
         [Required(ErrorMessage = "L'heure de début est obligatoire")]
         [DataType(DataType.Time)]
-        public DateTime Starthour { get; set; }
+        public DateTime StartHour { get; set; }
 
-        [Display(Name = "Nombre d'heure total")]
-        [Required(ErrorMessage = "Le nombre d'heure total est obligatoire")]
-        public double TotalHour { get; set; }
 
         [Display(Name = "Prix du cours")]
         [Required(ErrorMessage = "Le prix du cours est obligatoire")]
@@ -40,13 +40,21 @@ namespace TeacherParadise.Models {
         public CProfesseur Professeur { get; set; }
 
         //Constructeur
-        public CCoursCollectif(string titre, string description, CMatieres matiere, DateTime date, DateTime starthour, double totalhour, double prix, CProfesseur professeur) {
+        /*
+        public CCoursCollectif(string titre,string description,DateTime date,DateTime startHour,double totalHour,double prix) {
             this.Titre = titre;
             this.Description = description;
-            this.Matieres = matiere;
             this.Date = date;
-            this.Starthour = starthour;
-            this.TotalHour = totalhour;
+            this.StartHour = startHour;
+            this.TotalHour = totalHour;
+            this.Prix = prix;
+        }*/
+        public CCoursCollectif(string titre, string description, CMatieres matieres, DateTime date, DateTime startHour, double prix, CProfesseur professeur) {
+            this.Titre = titre;
+            this.Description = description;
+            this.Matieres = matieres;
+            this.Date = date;
+            this.StartHour = startHour;
             this.Prix = prix;
             this.Professeur = professeur;
         }
@@ -54,8 +62,7 @@ namespace TeacherParadise.Models {
         //Methods
         public void ModifierCoursC(DateTime date,DateTime starthour,double totalhour,double prix) {
             this.Date = date;
-            this.Starthour = starthour;
-            this.TotalHour = totalhour;
+            this.StartHour = starthour;
             this.Prix = prix;
         }
 

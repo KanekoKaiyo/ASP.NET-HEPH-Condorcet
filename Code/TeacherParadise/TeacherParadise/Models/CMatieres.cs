@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace TeacherParadise.Models {
     public class CMatieres {
+
+        public int ID { get; set; }
+
         public string Titre { get; set; }
         public string Niveau { get; set; }
 

@@ -1,8 +1,41 @@
-﻿
+﻿@model TeacherParadise.Models.CConge
 @{
-    ViewData["Title"] = "AjoutConge";
-    // TODO  : Interface pour ajouter un jour de congé dans la liste des congé du professeur
+    ViewData["Title"] = "Ajouter une période de congé";
 }
 
-<h1>AjoutConge</h1>
+<h1>@ViewData["Title"]</h1>
 
+<form asp-action="CongeAdded">
+    <table>
+        <tr>
+            <td>
+                <label asp-for="DateDebut"></label>
+            </td>
+            <td>
+                <input asp-for="DateDebut" />
+            </td>
+            <td>
+                <span asp-validation-for="DateDebut" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="DateFin"></label>
+            </td>
+            <td>
+                <input asp-for="DateFin" />
+            </td>
+            <td>
+                <span asp-validation-for="DateFin" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a asp-action="Index"> Retour </a>
+            </td>
+            <td colspan="2">
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+</form>
