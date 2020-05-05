@@ -25,7 +25,11 @@ namespace TeacherParadise {
             services.AddControllersWithViews();
             // Mes services 
             services.AddDbContext<ParadiseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParadiseContext")).UseLazyLoadingProxies());
+
             services.AddTransient<IProfesseurDAL,ProfesseurDAL>();
+
+            services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,12 +46,16 @@ namespace TeacherParadise {
 
             app.UseRouting();
 
+            //Ajout S.J.
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
