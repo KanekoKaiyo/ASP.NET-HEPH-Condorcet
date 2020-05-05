@@ -28,16 +28,13 @@ namespace TeacherParadise.Models {
         [Display(Name = "Status")]
         public string Status { get; set; }
 
-        public CProfesseur Professeur { get; set; }
+        public virtual CProfesseur Professeur { get; set; }
 
 
         //Constructeur
-        /* public CCoursRemediation(DateTime date,DateTime startHour,DateTime endHour) {
-            this.Date = date;
-            this.StartHour = startHour;
-            this.EndHour = endHour;
-            this.Status = "Open";
-        }*/
+        public CCoursRemediation() {
+            //Constructeur vide pour Entity Framework
+        }
         public CCoursRemediation(DateTime date, DateTime startHour,DateTime endHour, CProfesseur professeur) {
             this.Date = date;
             this.StartHour = startHour;

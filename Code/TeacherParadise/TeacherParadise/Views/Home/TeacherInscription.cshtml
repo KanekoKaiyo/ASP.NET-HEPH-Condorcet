@@ -1,11 +1,18 @@
 ﻿@model TeacherParadise.Models.CProfesseur
 @{
     ViewData["Title"] = "Inscription en tant que professeur";
+
 }
 
 <h1>@ViewData["Title"]</h1>
 
-<form asp-action="TeacherAdded">
+@if((string)TempData["Error"] == "Error") {
+<span> Une erreur est survenu, veillez recommencer </span>
+} else if((string)TempData["Error"] == "Email") {
+<span> Une erreur est survenu, L'email est déjà utilisé </span>
+}
+
+<form method="post" asp-action="TeacherAdded">
     <table>
         <tr>
             <td>

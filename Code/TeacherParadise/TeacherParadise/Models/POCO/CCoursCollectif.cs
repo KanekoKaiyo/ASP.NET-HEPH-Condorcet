@@ -20,7 +20,7 @@ namespace TeacherParadise.Models {
 
         [Display(Name = "Matière et niveau du cours")]
         [Required(ErrorMessage = "La matière et le niveau du cours sont obligatoire")]
-        public CMatieres Matieres { get; set; }
+        public virtual CMatieres Matieres { get; set; }
 
         [Display(Name = "Date du cours")]
         [Required(ErrorMessage = "La date du cours est obligatoire")]
@@ -32,38 +32,41 @@ namespace TeacherParadise.Models {
         [DataType(DataType.Time)]
         public DateTime StartHour { get; set; }
 
+        [Display(Name = "Nombre d'étudiant maximum")]
+        [Required(ErrorMessage = "Le nombre d'étudiant maximum est obligatoire")]
+        public int MaxStudent { get; set; }
+
+        [Display(Name = "Nombre d'étudiant inscrit au cours")]
+        public int CurrentStudent { get; set; }
 
         [Display(Name = "Prix du cours")]
         [Required(ErrorMessage = "Le prix du cours est obligatoire")]
-        public double Prix { get; set; }
+        public double Price { get; set; }
 
-        public CProfesseur Professeur { get; set; }
+        public virtual CProfesseur Professeur { get; set; }
 
         //Constructeur
-        /*
-        public CCoursCollectif(string titre,string description,DateTime date,DateTime startHour,double totalHour,double prix) {
-            this.Titre = titre;
-            this.Description = description;
-            this.Date = date;
-            this.StartHour = startHour;
-            this.TotalHour = totalHour;
-            this.Prix = prix;
-        }*/
-        public CCoursCollectif(string titre, string description, CMatieres matieres, DateTime date, DateTime startHour, double prix, CProfesseur professeur) {
+        
+        public CCoursCollectif() {
+            //Constructeur vide pour Entity Framework
+        }
+        public CCoursCollectif(string titre, string description, CMatieres matieres, DateTime date, DateTime startHour,int maxstudent,double price, CProfesseur professeur) {
             this.Titre = titre;
             this.Description = description;
             this.Matieres = matieres;
             this.Date = date;
             this.StartHour = startHour;
-            this.Prix = prix;
+            this.MaxStudent = maxstudent;
+            this.CurrentStudent = 0;
+            this.Price = price;
             this.Professeur = professeur;
         }
 
         //Methods
-        public void ModifierCoursC(DateTime date,DateTime starthour,double totalhour,double prix) {
+        public void ModifierCoursC(DateTime date,DateTime starthour,double price) {
             this.Date = date;
             this.StartHour = starthour;
-            this.Prix = prix;
+            this.Price = price;
         }
 
         public void SuppressionCoursR() {

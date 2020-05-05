@@ -153,3 +153,5 @@ D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\CoursRemediationAdded.cshtml.g.cs
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\CongeAdded.cshtml.g.cs
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\ListCourCollectif.cshtml.g.cs
+D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\ListCourRemediation.cshtml.g.cs
+D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\MonProfil.cshtml.g.cs

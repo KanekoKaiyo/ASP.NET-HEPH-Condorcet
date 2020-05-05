@@ -1,17 +1,15 @@
-﻿
+﻿@model TeacherParadise.Models.CProfesseur
 @{
     ViewData["Title"] = "Inscription en tant que professeur";
-    if(TempData["Success"] == null) {
-        TempData["Success"] = false;
+    CProfesseur prof = null;
+    if((bool)TempData["Success"] == false) {
+
+    } else if((bool)TempData["Success"] == true) {
+        prof = (CProfesseur)TempData["Session"];
     }
 }
 
 <h1>@ViewData["Title"]</h1>
 
-@if((bool)TempData["Success"]) {
-    <span> Compte créer avec succes </span>
-    <a asp-controller="Teacher" asp-action="Index"> Cliquez ici pour être redirigez vers votre interface de professeur</a>
-} else {
-    <span> Une erreur est survenu, veillez recommencer </span>
-    <a asp-controller="Home" asp-action="TeacherInscription"> Précédent </a>
-}
+<span> Compte créer avec succes @prof.LastName @prof.SurName</span>
+<a asp-controller="Teacher" asp-action="Index"> Cliquez ici pour être redirigez vers votre interface de professeur</a>

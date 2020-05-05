@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TeacherParadise.Models.DAL;
 
 namespace TeacherParadise.Models {
     public class CProfesseur:CUtilisateur {
 
         // Attributs
-        public List<CMatieres> Matieres { get; set; }
-        public List<CCoursCollectif> CoursCollectifs { get; set; }
-        public List<CCoursRemediation> CoursRemediations { get; set; }
-        public List<CConge> ListeConge { get; set; }
+        public virtual List<CMatieres> Matieres { get; set; }
+        public virtual List<CCoursCollectif> CoursCollectifs { get; set; }
+        public virtual List<CCoursRemediation> CoursRemediations { get; set; }
+        public virtual List<CConge> ListeConge { get; set; }
         // Constructor
+        public CProfesseur() {
+            //Constructeur vide pour Entity Framework
+        }
         public CProfesseur(string lastName,string surName,DateTime doB,string email,string password,string phoneNumber) {
             this.LastName = lastName;
             this.SurName = surName;
@@ -26,6 +30,15 @@ namespace TeacherParadise.Models {
         }
 
         // Methods
+        public CProfesseur AjoutProfesseur(CProfesseur professeur, IProfesseurDAL professeurDAL) {
+            // Fonction d'ajout dans la base de donnée, demande à la classe dal de le faire, la classe dal vérifie si c'est possible et renvoie une réponse, si null l'ajout a échoué car l'email est déjà utilisé, si c'est bon elle renvoie l'objet au controller
+            CProfesseur prof = professeurDAL.AddProfesseur(professeur);
+            if(prof == null) {
+                return null;
+            } else {
+                return prof;
+            }
+        }
         public override void ModifierProfil(string lastname,string surname,DateTime dob,string email,string password,string phonenumber) {
             this.LastName = lastname;
             this.SurName = surname;
