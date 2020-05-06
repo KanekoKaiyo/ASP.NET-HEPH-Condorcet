@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using TeacherParadise.Models.DAL;
 
 namespace TeacherParadise.Models {
     public class CCoursCollectif {
@@ -18,9 +19,14 @@ namespace TeacherParadise.Models {
         [Required(ErrorMessage = "La description du cours est obligatoire")]
         public string Description { get; set; }
 
-        [Display(Name = "Matière et niveau du cours")]
-        [Required(ErrorMessage = "La matière et le niveau du cours sont obligatoire")]
-        public virtual CMatieres Matieres { get; set; }
+        [Display(Name = "Matière du cours")]
+        [Required(ErrorMessage = "La matière du cours sont obligatoire")]
+        public string Matieres { get; set; }
+
+        [Display(Name = "Niveau du cours")]
+        [Required(ErrorMessage = "Le niveau du cours sont obligatoire")]
+        public string Niveau { get; set; }
+
 
         [Display(Name = "Date du cours")]
         [Required(ErrorMessage = "La date du cours est obligatoire")]
@@ -50,10 +56,11 @@ namespace TeacherParadise.Models {
         public CCoursCollectif() {
             //Constructeur vide pour Entity Framework
         }
-        public CCoursCollectif(string titre, string description, CMatieres matieres, DateTime date, DateTime startHour,int maxstudent,double price, CProfesseur professeur) {
+        public CCoursCollectif(string titre, string description, string matieres,string niveau, DateTime date, DateTime startHour,int maxstudent,double price, CProfesseur professeur) {
             this.Titre = titre;
             this.Description = description;
             this.Matieres = matieres;
+            this.Niveau = niveau;
             this.Date = date;
             this.StartHour = startHour;
             this.MaxStudent = maxstudent;
@@ -63,6 +70,15 @@ namespace TeacherParadise.Models {
         }
 
         //Methods
+        public static List<CCoursCollectif> GetAllCours(int ID, ICoursCollectifDAL coursCollectifDAL) {
+            // Fonction qui renvoie la liste compléte des cours collectif du professeur
+            List<CCoursCollectif> cours = coursCollectifDAL.GetAllCours(ID);
+            if(cours == null)
+                return null;
+            else
+                return cours;
+        }
+
         public void ModifierCoursC(DateTime date,DateTime starthour,double price) {
             this.Date = date;
             this.StartHour = starthour;

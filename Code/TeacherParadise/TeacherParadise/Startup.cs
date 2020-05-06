@@ -24,8 +24,23 @@ namespace TeacherParadise {
         public void ConfigureServices(IServiceCollection services) {
             services.AddControllersWithViews();
             // Mes services 
+            // Services pour le contexte/connexion à la base de donnée
             services.AddDbContext<ParadiseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ParadiseContext")).UseLazyLoadingProxies());
+
+            // Services pour l'injection de dépendance des DAL
             services.AddTransient<IProfesseurDAL,ProfesseurDAL>();
+            services.AddTransient<ICoursCollectifDAL,CoursCollectifDAL>();
+
+            // Services pour les sessions
+            services.AddDistributedMemoryCache();
+            services.AddSession(options => {
+                // Option pour la durée de vie de la session
+                options.IdleTimeout = TimeSpan.FromSeconds(3600); 
+                // Option pour rendre les cookie impossible à manipuler coté client
+                options.Cookie.HttpOnly = true;
+                // Option pour rendre le cookie essentiel pour le fonctionnement de l'application
+                options.Cookie.IsEssential = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +58,9 @@ namespace TeacherParadise {
             app.UseRouting();
 
             app.UseAuthorization();
+
+            // Lancement du services des applications
+            app.UseSession();
 
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllerRoute(

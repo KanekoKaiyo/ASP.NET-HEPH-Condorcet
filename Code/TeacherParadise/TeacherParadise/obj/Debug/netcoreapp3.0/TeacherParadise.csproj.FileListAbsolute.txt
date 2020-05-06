@@ -126,7 +126,6 @@ D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\AfficheConge.cshtml.g.cs
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\AjoutConge.cshtml.g.cs
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Home\TeacherInscription.cshtml.g.cs
-D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Home\TeacherAdded.cshtml.g.cs
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\bin\Debug\netcoreapp3.0\Castle.Core.dll
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\bin\Debug\netcoreapp3.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\bin\Debug\netcoreapp3.0\Microsoft.Bcl.HashCode.dll
@@ -149,9 +148,10 @@ D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\TeacherParadise.MvcApplicationPartsAssemblyInfo.cache
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\AjoutCourCollectif.cshtml.g.cs
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\CoursCollectifAdded.cshtml.g.cs
-D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\AjoutCourRemediation.cshtml.g.cs
-D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\CoursRemediationAdded.cshtml.g.cs
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\CongeAdded.cshtml.g.cs
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\ListCourCollectif.cshtml.g.cs
-D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\ListCourRemediation.cshtml.g.cs
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\MonProfil.cshtml.g.cs
+D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\TeacherParadise.csproj.CoreCompileInputs.cache
+D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\TeacherParadise.genruntimeconfig.cache
+D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Home\TeacherLogin.cshtml.g.cs
+D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Home\test.cshtml.g.cs

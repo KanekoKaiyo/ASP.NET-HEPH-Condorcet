@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http <!-- Permet d'utiliser le context.session pour l'affichage du menu -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -10,7 +11,7 @@
 <body>
     <header>
         @{
-            if((string)TempData["User"] == "Nothing") {
+            if(Context.Session.GetString("UserType") == "Nothings") {
                 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
                     <div class="container">
                         <a class="navbar-brand" asp-controller="Home" asp-action="Index">TeacherParadise</a>
@@ -23,11 +24,17 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Home" asp-action="TeacherInscription"> Inscription Professeur </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Home" asp-action="TeacherLogin"> Connexion Professeur </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </nav>
-            } else if((string)TempData["User"] == "Professeur") {
+            } else if(Context.Session.GetString("UserType") == "Professeur") {
                 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
                     <div class="container">
                         <a class="navbar-brand" asp-controller="Teacher" asp-action="Index">TeacherParadise</a>
@@ -42,9 +49,6 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-controller="Teacher" asp-action="ListCourCollectif">Mes Cours Collectifs</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="Teacher" asp-action="ListCourRemediation">Mes Cours Remediations</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-controller="Teacher" asp-action="AfficheConge">Mes congés</a>
@@ -71,13 +75,13 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - TeacherParadise - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2020 - TeacherParadise - Simon Jonathan CopyRight.
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <partial name="_ValidationScriptsPartial" />
-    @RenderSection("Scripts", required: false)
+    @RenderSection("Scripts",required: false)
 </body>
 </html>

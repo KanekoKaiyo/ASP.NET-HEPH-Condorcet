@@ -25,6 +25,16 @@ namespace TeacherParadise.Models.DAL {
             }
         }
 
+        public CProfesseur VerifProfesseur(CProfesseur professeur) {
+            // Fonction de vérification pour le login, si l'email ET le mot de passe sont présent et correspondent bien dans la base de donnée
+            CProfesseur prof = Where(pr => pr.Email.Equals(professeur.Email) && pr.Password.Equals(professeur.Password)).FirstOrDefault();
+            if(prof == null) {
+                return null; // Combinnaisson email/mot de passe non trouvé
+            } else {
+                return prof;
+            }
+        }
+
         //private CProfesseur GetProfesseurByEmail(string email) {
         //    return _context.Professeurs.Where(professeur => professeur.Email.Equals(email)).FirstOrDefault();
         //}

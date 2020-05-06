@@ -1,7 +1,59 @@
-﻿
+﻿@model CCoursCollectif
 @{
-    ViewData["Title"] = "ListCourCollectif";
+    ViewData["Title"] = "La liste de vos cours collectifs";
+    List<CCoursCollectif> cours = (List<CCoursCollectif>)TempData["CoursC"];
+    if(TempData["CoursC"] == null) {
+
+    } else {
+
+    }
 }
 
-<h1>ListCourCollectif</h1>
+<h1>@ViewData["Title"]</h1>
 
+<table>
+    <tr>
+        <th>
+            <label asp-for="Titre"></label>
+        </th>
+        <th>
+            <label asp-for="Description"></label>
+        </th>
+        <th>
+            <label asp-for="Matieres"></label>
+        </th>
+        <th>
+            <label asp-for="Date"></label>
+        </th>
+        <th>
+            <label asp-for="StartHour"></label>
+        </th>
+        <th>
+            <label asp-for="MaxStudent"></label>
+        </th>
+    </tr>
+    @{ 
+        foreach(CCoursCollectif c in cours) {
+            <tr>
+                <td>
+                    <label> @Html.DisplayFor(modelItem => c.Titre)   </label>
+                </td>
+                <td>
+                    <label> @Html.DisplayFor(modelItem => c.Description)   </label>
+                </td>
+                <td>
+                    <label> @Html.DisplayFor(modelItem => c.Matieres)   </label>
+                </td>
+                <td>
+                    <label> @Html.DisplayFor(modelItem => c.Date)   </label>
+                </td>
+                <td>
+                    <label> @Html.DisplayFor(modelItem => c.StartHour)   </label>
+                </td>
+                <td>
+                    <label> @Html.DisplayFor(modelItem => c.MaxStudent)   </label>
+                </td>
+            </tr>
+        }
+    }
+</table>

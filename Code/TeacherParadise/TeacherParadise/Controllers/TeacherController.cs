@@ -3,40 +3,62 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using TeacherParadise.Models;
+using TeacherParadise.Models.DAL;
 
 namespace TeacherParadise.Controllers
 {
     public class TeacherController : Controller
     {
+        // My Controller
+        // Dal Loader
+        private readonly ICoursCollectifDAL _coursCollectifDAL;
+        public TeacherController(ICoursCollectifDAL coursCollectifDAL) {
+            _coursCollectifDAL = coursCollectifDAL;
+        }
+        private bool VerifSession() {
+            if(HttpContext.Session.GetString("UserType") != "Professeur")
+                return true;
+            else
+                return false;
+        }
         public IActionResult Index() {
-            TempData["User"] = "Professeur";
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
             return View();
         }
 
         public IActionResult ListCourCollectif() {
-            TempData["User"] = "Professeur";
-            return View();
-        }
-        public IActionResult ListCourRemediation() {
-            TempData["User"] = "Professeur";
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+            int ID = HttpContext.Session.GetInt32("IDP").GetValueOrDefault();
+            List<CCoursCollectif> cours = CCoursCollectif.GetAllCours(ID,_coursCollectifDAL);
+            if(cours == null) {
+                TempData["CoursC"] = null;
+            } else {
+                TempData["CoursC"] = cours;
+            }
             return View();
         }
         public IActionResult AfficheConge() {
-            TempData["User"] = "Professeur";
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
             return View();
         }
         public IActionResult MonProfil() {
-            TempData["User"] = "Professeur";
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+            return View();
+        }
+        public IActionResult AjoutCourCollectif() {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
             return View();
         }
         public IActionResult Deconnexion() {
-            // TODO gerer la déconnexion de l'utilisateur
-            TempData["User"] = "Professeur";
+            HttpContext.Session.SetString("UserType","Nothings");
             return RedirectToAction("Index","Home");
         }
-        public IActionResult AjoutCourCollectif() {
-            TempData["User"] = "Professeur";
-            return View();
-        }   
     }
 }
