@@ -20,6 +20,47 @@ namespace TeacherParadise.Models.DAL {
             else
                 return cours;
         }
+
+        public CCoursCollectif AddCours(CCoursCollectif cours) {
+            // Fonction qui ajoute un cours dans la base de donnée, vérifions si il est possible d'ajouter un cours à cette heure la !
+
+            CCoursCollectif crs = Where(cr => cr.Date.Date.Equals(cours.Date.Date) && cr.StartHour.Hour.Equals(cours.StartHour.Hour)).FirstOrDefault();
+
+            if(crs == null) {
+                // Si il n'a pas de cours à cette heure la on l'ajoute
+                _context.CoursCollectifs.Add(cours);
+                _context.SaveChanges();
+                return cours;
+            } else {
+                return null;
+            }
+
+        }
+
+        public CCoursCollectif GetCour(int ID) {
+            //Fonction qui renvoie un cours de la base de donné via son ID
+
+            CCoursCollectif crs = Where(cr => cr.ID.Equals(ID)).FirstOrDefault();
+
+            if(crs == null) {
+                // erreur survenu, bizarre d'aileurs si ça arrive 
+                return null;
+            } else {
+                return crs;
+            }
+        }
+        public bool DeleteCoursCollectif(CCoursCollectif cours) {
+            _context.Remove(cours);
+            int temp = _context.SaveChanges();
+
+            if (temp != 0) {
+                // Si le nombre de ligne modifié est différent de 0 on renvoie true
+                return true;
+            } else {
+                // si non on renvoie false
+                return false;
+            }
+        }
         // Substitution de la fonction Where qui permet de rechercher dans la base de donnée si un (ou des) enregistrement existe ou non en donnant un paramètre à rechercher
         private IEnumerable<CCoursCollectif> Where(params Expression<Func<CCoursCollectif,bool>>[] predicates) {
             IQueryable<CCoursCollectif> query = _context.CoursCollectifs;

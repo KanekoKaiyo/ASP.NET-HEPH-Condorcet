@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using TeacherParadise.Attribute;
 
 namespace TeacherParadise.Models {
     abstract public class CUtilisateur {
@@ -23,6 +24,7 @@ namespace TeacherParadise.Models {
         [Display(Name = "Date de naissance")]
         [Required(ErrorMessage = "La date de naissance est obligatoire")]
         [DataType(DataType.Date)]
+        [DoBMajor]
         public DateTime DoB { get; set; }
 
         [Display(Name = "Email")]

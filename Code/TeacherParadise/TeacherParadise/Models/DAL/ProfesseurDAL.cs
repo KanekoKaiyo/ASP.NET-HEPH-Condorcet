@@ -35,6 +35,9 @@ namespace TeacherParadise.Models.DAL {
             }
         }
 
+        public CProfesseur GetProfByID(int? ID) {
+            return Where(pr => pr.ID.Equals(ID)).FirstOrDefault();
+        }
         //private CProfesseur GetProfesseurByEmail(string email) {
         //    return _context.Professeurs.Where(professeur => professeur.Email.Equals(email)).FirstOrDefault();
         //}

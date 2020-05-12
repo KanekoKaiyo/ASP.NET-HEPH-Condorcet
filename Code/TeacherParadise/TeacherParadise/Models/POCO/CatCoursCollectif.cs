@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TeacherParadise.Models.DAL;
 
 namespace TeacherParadise.Models {
     public class CatCoursCollectif {
         private List<CCoursCollectif> listCC;
         private static CatCoursCollectif instance = null;
 
-        private CatCoursCollectif() {
-            listCC = new List<CCoursCollectif>();
+        private CatCoursCollectif(int ID,ICoursCollectifDAL coursCollectifDAL) {
+            ListCC = CCoursCollectif.GetAllCours(ID,coursCollectifDAL);
         }
 
         public List<CCoursCollectif> ListCC {
@@ -17,10 +18,13 @@ namespace TeacherParadise.Models {
             set { listCC = value; }
         }
 
-        public static CatCoursCollectif Instance() {
+        public static CatCoursCollectif Instance(int ID,ICoursCollectifDAL coursCollectifDAL) {
             if(instance == null) {
-                instance = new CatCoursCollectif();
+                instance = new CatCoursCollectif(ID,coursCollectifDAL);
             }
+            return instance;
+        }
+        public static CatCoursCollectif Instance() {
             return instance;
         }
 
@@ -30,12 +34,6 @@ namespace TeacherParadise.Models {
 
         public void Remove(CCoursCollectif cc) {
             listCC.Remove(cc);
-        }
-
-        public void Display() {
-            foreach(CCoursCollectif cc in listCC) {
-                Console.WriteLine(cc);
-            }
         }
     }
 }

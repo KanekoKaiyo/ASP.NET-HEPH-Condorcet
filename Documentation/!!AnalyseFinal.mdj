@@ -91541,6 +91541,7 @@
 											"model": {
 												"$ref": "AAAAAAFxMKRUE386DWI="
 											},
+											"visible": false,
 											"fillColor": "#ff2b2b",
 											"font": "Arial;13;0",
 											"left": 909,
@@ -91562,7 +91563,7 @@
 											"fillColor": "#ff2b2b",
 											"font": "Arial;13;0",
 											"left": 909,
-											"top": 387,
+											"top": 372,
 											"width": 159.326171875,
 											"height": 13,
 											"text": "-ListeCongé [List] *",
@@ -91574,7 +91575,7 @@
 									"left": 904,
 									"top": 337,
 									"width": 169.326171875,
-									"height": 68
+									"height": 53
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -91598,7 +91599,7 @@
 											"fillColor": "#ff2b2b",
 											"font": "Arial;13;0",
 											"left": 909,
-											"top": 410,
+											"top": 395,
 											"width": 159.326171875,
 											"height": 13,
 											"text": "+_DemandeAjoutMatières()",
@@ -91665,7 +91666,7 @@
 									"fillColor": "#ff2b2b",
 									"font": "Arial;13;0",
 									"left": 904,
-									"top": 405,
+									"top": 390,
 									"width": 169.326171875,
 									"height": 23
 								},

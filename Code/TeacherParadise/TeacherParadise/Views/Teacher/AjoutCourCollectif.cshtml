@@ -5,7 +5,13 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<form asp-action="CoursCollectifAdded">
+@{ 
+    if((bool)TempData["Error"] == true) {
+        <label class="alert-danger"> Une erreur est survenue, il est possible que la date et l'heure ne sois pas disponnible, recommencer en changeant les dates. </label>
+    }
+}
+
+<form asp-action="AjoutCourCollectif">
     <table>
         <tr>
             <td>
@@ -29,17 +35,28 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </td>
         </tr>
-        <!-- <tr>
-    <td>
-        <label asp-for="Matieres"></label>
-    </td>
-    <td>
-        <input asp-for="Matieres" />
-    </td>
-    <td>
-        <span asp-validation-for="Matieres" class="text-danger"></span>
-    </td>
-    </tr> -->
+        <tr>
+            <td>
+                <label asp-for="Matieres"></label>
+            </td>
+            <td>
+                <input asp-for="Matieres" />
+            </td>
+            <td>
+                <span asp-validation-for="Matieres" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Niveau"></label>
+            </td>
+            <td>
+                <input asp-for="Niveau" />
+            </td>
+            <td>
+                <span asp-validation-for="Niveau" class="text-danger"></span>
+            </td>
+        </tr>
         <tr>
             <td>
                 <label asp-for="Date"></label>
@@ -75,10 +92,21 @@
         </tr>
         <tr>
             <td>
-                <a asp-action="Index"> Retour </a>
+                <label asp-for="MaxStudent"></label>
+            </td>
+            <td>
+                <input asp-for="MaxStudent" />
+            </td>
+            <td>
+                <span asp-validation-for="MaxStudent" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a asp-action="ListCourCollectif"> Retour </a>
             </td>
             <td colspan="2">
-                <input type="submit"/>
+                <input type="submit" />
             </td>
         </tr>
     </table>

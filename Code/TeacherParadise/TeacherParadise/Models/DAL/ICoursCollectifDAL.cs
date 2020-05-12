@@ -6,5 +6,8 @@ using System.Threading.Tasks;
 namespace TeacherParadise.Models.DAL {
     public interface ICoursCollectifDAL {
         List<CCoursCollectif> GetAllCours(int ID);
+        CCoursCollectif AddCours(CCoursCollectif cours);
+        CCoursCollectif GetCour(int ID);
+        bool DeleteCoursCollectif(CCoursCollectif cours);
     }
 }

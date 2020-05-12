@@ -7,5 +7,6 @@ namespace TeacherParadise.Models.DAL {
     public interface IProfesseurDAL {
         CProfesseur AddProfesseur(CProfesseur professeur);
         CProfesseur VerifProfesseur(CProfesseur professeur);
+        CProfesseur GetProfByID(int? ID);
     }
 }

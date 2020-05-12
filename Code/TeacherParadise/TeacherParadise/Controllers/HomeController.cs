@@ -42,6 +42,7 @@ namespace TeacherParadise.Controllers {
                 return View(professeur);
             } else {
                 HttpContext.Session.SetString("UserType","Professeur");
+                HttpContext.Session.SetInt32("IDP",prof.ID);
                 return RedirectToAction("Index","Teacher");
             }
             
@@ -63,7 +64,7 @@ namespace TeacherParadise.Controllers {
                     return View(professeur);
                 } else {
                     HttpContext.Session.SetString("UserType","Professeur");
-                    HttpContext.Session.SetInt32("IDP",professeur.ID);
+                    HttpContext.Session.SetInt32("IDP",prof.ID);
                     return RedirectToAction("Index","Teacher");
                 }
             } else {

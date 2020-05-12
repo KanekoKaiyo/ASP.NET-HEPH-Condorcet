@@ -44,6 +44,10 @@ namespace TeacherParadise.Models {
                 return prof;
             }
         }
+        public CProfesseur GetProfByID(int? ID,IProfesseurDAL professeurDAL) {
+            // Fonction qui renvoie l'objet professeur lorsqu'on lui renvoie son ID
+            return professeurDAL.GetProfByID(ID);
+        }
         public override void ModifierProfil(string lastname,string surname,DateTime dob,string email,string password,string phonenumber) {
             this.LastName = lastname;
             this.SurName = surname;

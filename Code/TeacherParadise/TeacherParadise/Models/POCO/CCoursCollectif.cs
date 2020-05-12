@@ -69,6 +69,9 @@ namespace TeacherParadise.Models {
             this.Professeur = professeur;
         }
 
+
+
+
         //Methods
         public static List<CCoursCollectif> GetAllCours(int ID, ICoursCollectifDAL coursCollectifDAL) {
             // Fonction qui renvoie la liste compléte des cours collectif du professeur
@@ -79,14 +82,49 @@ namespace TeacherParadise.Models {
                 return cours;
         }
 
+        public CCoursCollectif AddCours(CCoursCollectif cours, ICoursCollectifDAL coursCollectifDAL) {
+            // Fonction d'ajout d'un nouveau cours collectif
+            CCoursCollectif cours_ = coursCollectifDAL.AddCours(cours);
+            if(cours_ == null)
+                return null;
+            else
+                return cours_;
+        }
+
+        public static CCoursCollectif GetCour(int ID,ICoursCollectifDAL coursCollectifDAL) {
+            // Fonction qui renvoie un objet cour gràce à son ID
+            CCoursCollectif cours_ = coursCollectifDAL.GetCour(ID);
+            if(cours_ == null)
+                return null;
+            else
+                return cours_;
+        }
+        public bool DeleteCoursCollectif(CCoursCollectif cours,ICoursCollectifDAL coursCollectifDAL) {
+            bool test = coursCollectifDAL.DeleteCoursCollectif(cours);
+            if(test == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
         public void ModifierCoursC(DateTime date,DateTime starthour,double price) {
             this.Date = date;
             this.StartHour = starthour;
             this.Price = price;
         }
 
-        public void SuppressionCoursR() {
-            //TODO : delete dans la database + catalogue
+        public override bool Equals(object obj) {
+            if(obj is CCoursCollectif && obj != null) {
+                CCoursCollectif temp;
+                temp = (CCoursCollectif)obj;
+                if(temp.ID == this.ID) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
         }
     }
 }
