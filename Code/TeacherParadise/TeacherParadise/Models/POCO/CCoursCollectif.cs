@@ -113,6 +113,14 @@ namespace TeacherParadise.Models {
             this.Price = price;
         }
 
+        public CCoursCollectif ModifyCour(CCoursCollectif cours,int ID,ICoursCollectifDAL coursCollectifDAL) {
+            CCoursCollectif cours_ = coursCollectifDAL.ModifyCour(cours,ID);
+            if(cours_ == null)
+                return null;
+            else
+                return cours_;
+        }
+
         public override bool Equals(object obj) {
             if(obj is CCoursCollectif && obj != null) {
                 CCoursCollectif temp;

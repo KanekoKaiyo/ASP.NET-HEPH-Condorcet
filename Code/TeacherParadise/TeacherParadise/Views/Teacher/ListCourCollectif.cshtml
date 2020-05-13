@@ -33,6 +33,9 @@
             <label asp-for="MaxStudent"></label>
         </th>
         <th>
+            <label asp-for="Price"></label>
+        </th>
+        <th>
             <label> Supprimer </label>
         </th>
         <th>
@@ -64,13 +67,16 @@
                         <label> @Html.DisplayFor(modelItem => c.MaxStudent)   </label>
                     </td>
                     <td>
-                        <form asp-action="DeleteCoursCollectif" method="post">
+                        <label> @Html.DisplayFor(modelItem => c.Price)   </label>
+                    </td>
+                    <td>
+                        <form asp-action="DeleteCoursCollectif" method="get">
                             <input type="hidden" name="id" value="@Html.DisplayFor(modelItem => c.ID)" />
                             <input type="submit" value="Supprimer" />
                         </form>
                     </td>
                     <td>
-                        <form asp-action="ModifierCoursCollectif" method="post">
+                        <form asp-action="ModifierCoursCollectif" method="get">
                             <input type="hidden" name="id" value="@Html.DisplayFor(modelItem => c.ID)" />
                             <input type="submit" value="Modifier" />
                         </form>

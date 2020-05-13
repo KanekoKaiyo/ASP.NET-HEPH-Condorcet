@@ -155,3 +155,4 @@ D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\TeacherParadise.genruntimeconfig.cache
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Home\TeacherLogin.cshtml.g.cs
 D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Home\test.cshtml.g.cs
+D:\Code\C#\ProjetASP\ASP.NET-HEPH-Condorcet\Code\TeacherParadise\TeacherParadise\obj\Debug\netcoreapp3.0\Razor\Views\Teacher\ModifierCoursCollectif.cshtml.g.cs

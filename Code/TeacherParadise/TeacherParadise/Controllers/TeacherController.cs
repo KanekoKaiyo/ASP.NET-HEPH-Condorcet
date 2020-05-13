@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using TeacherParadise.Models;
 using TeacherParadise.Models.DAL;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace TeacherParadise.Controllers
 {
@@ -94,8 +95,11 @@ namespace TeacherParadise.Controllers
                 return View(cours);
             }
         }
-        [HttpPost]
+        
         public IActionResult DeleteCoursCollectif(int id) {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+
             CCoursCollectif cours = CCoursCollectif.GetCour(id,_coursCollectifDAL);
             bool test = cours.DeleteCoursCollectif(cours,_coursCollectifDAL);
             if (test == true) {
@@ -106,6 +110,31 @@ namespace TeacherParadise.Controllers
                 TempData["Error"] = true;
                 return RedirectToAction("ListCourCollectif");
             }
+        }
+        public IActionResult ModifierCoursCollectif(int id) {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+
+            CCoursCollectif cours = CCoursCollectif.GetCour(id,_coursCollectifDAL);
+            TempData["CoursC"] = cours;
+            HttpContext.Session.SetInt32("IDModifyCour",id);
+            return View();
+        }
+        [HttpPost]
+        public IActionResult ModifierCoursCollectif(CCoursCollectif cours) {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+            int ID = HttpContext.Session.GetInt32("IDModifyCour").GetValueOrDefault();
+            CCoursCollectif cours_ = cours.ModifyCour(cours,ID,_coursCollectifDAL);
+            if(cours_ == null) {
+                TempData["Error"] = true;
+                return View(cours);
+            } else {
+                CatCoursCollectif Catcours = CatCoursCollectif.Instance();
+                Catcours.Remove(cours);
+                Catcours.Add(cours_);
+            }
+            return RedirectToAction("ListCourCollectif");
         }
 
         public IActionResult Deconnexion() {

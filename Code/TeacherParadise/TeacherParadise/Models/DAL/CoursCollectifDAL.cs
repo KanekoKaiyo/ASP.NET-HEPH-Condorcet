@@ -61,6 +61,20 @@ namespace TeacherParadise.Models.DAL {
                 return false;
             }
         }
+
+        public CCoursCollectif ModifyCour(CCoursCollectif cours, int ID) {
+            cours.ID = ID;
+            _context.Update(cours);
+            int temp = _context.SaveChanges();
+
+            if(temp != 0) {
+                return cours;
+            } else {
+                return null;
+            }
+        }
+
+
         // Substitution de la fonction Where qui permet de rechercher dans la base de donnée si un (ou des) enregistrement existe ou non en donnant un paramètre à rechercher
         private IEnumerable<CCoursCollectif> Where(params Expression<Func<CCoursCollectif,bool>>[] predicates) {
             IQueryable<CCoursCollectif> query = _context.CoursCollectifs;

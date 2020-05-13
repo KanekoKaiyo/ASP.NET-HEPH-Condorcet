@@ -9,5 +9,6 @@ namespace TeacherParadise.Models.DAL {
         CCoursCollectif AddCours(CCoursCollectif cours);
         CCoursCollectif GetCour(int ID);
         bool DeleteCoursCollectif(CCoursCollectif cours);
+        CCoursCollectif ModifyCour(CCoursCollectif cours, int ID);
     }
 }
