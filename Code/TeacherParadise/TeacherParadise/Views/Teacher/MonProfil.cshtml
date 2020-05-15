@@ -1,7 +1,67 @@
-﻿
+﻿@model CProfesseur
 @{
-    ViewData["Title"] = "MonProfil";
+    ViewData["Title"] = "Mon Profil";
+    CProfesseur prof = (CProfesseur)TempData["Prof"];
 }
 
-<h1>MonProfil</h1>
+<h1>@ViewData["Title"]</h1>
 
+@{
+    if(prof == null) {
+        <label> Une erreur est survenu lors du chargement de votre profil, veillez réessayer.</label>
+    } else {
+<table>
+    <tr>
+        <td>
+            <label asp-for="LastName"> </label>
+        </td>
+        <td>
+            <label> @Html.DisplayFor(modelItem => prof.LastName) </label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label asp-for="SurName"> </label>
+        </td>
+        <td>
+            <label> @Html.DisplayFor(modelItem => prof.SurName) </label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label asp-for="DoB"> </label>
+        </td>
+        <td>
+            <label> @Html.DisplayFor(modelItem => prof.DoB) </label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label asp-for="Email"> </label>
+        </td>
+        <td>
+            <label> @Html.DisplayFor(modelItem => prof.Email) </label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label asp-for="PhoneNumber"> </label>
+        </td>
+        <td>
+            <label> @Html.DisplayFor(modelItem => prof.PhoneNumber) </label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <td>
+            <a asp-action="Index"> Retour </a>
+        </td>
+        <td colspan="2">
+            <form asp-action="ModifyProfil" method="get">
+                <input type="submit" value="Modifier"/>
+            </form>
+        </td>
+    </tr>
+</table>
+    }
+}

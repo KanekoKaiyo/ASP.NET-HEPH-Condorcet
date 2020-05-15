@@ -107,11 +107,6 @@ namespace TeacherParadise.Models {
                 return false;
             }
         }
-        public void ModifierCoursC(DateTime date,DateTime starthour,double price) {
-            this.Date = date;
-            this.StartHour = starthour;
-            this.Price = price;
-        }
 
         public CCoursCollectif ModifyCour(CCoursCollectif cours,int ID,ICoursCollectifDAL coursCollectifDAL) {
             CCoursCollectif cours_ = coursCollectifDAL.ModifyCour(cours,ID);

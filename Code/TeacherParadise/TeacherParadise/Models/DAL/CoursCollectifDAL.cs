@@ -14,7 +14,7 @@ namespace TeacherParadise.Models.DAL {
 
         public List<CCoursCollectif> GetAllCours(int ID) {
             // Fonction qui renvoie une liste de tout les cours Collectifs du professeur en utilsant son ID
-            List<CCoursCollectif> cours = Where(cr => cr.Professeur.ID.Equals(ID)).ToList();
+            List<CCoursCollectif> cours = Where(cr => cr.Professeur.ID.Equals(ID)).OrderBy(cr => cr.Date).ToList();
             if(cours == null)
                 return null;
             else

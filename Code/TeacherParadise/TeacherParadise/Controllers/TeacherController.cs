@@ -49,7 +49,41 @@ namespace TeacherParadise.Controllers
         public IActionResult MonProfil() {
             if(VerifSession())
                 return RedirectToAction("Index","Home");
+
+            CProfesseur prof = new CProfesseur();
+            int? ID = HttpContext.Session.GetInt32("IDP");
+            prof = prof.GetProfByID(ID,_professeurDAL);
+            TempData["Prof"] = prof;
             return View();
+        }
+
+        public IActionResult ModifyProfil() {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+
+            CProfesseur prof = new CProfesseur();
+            int? ID = HttpContext.Session.GetInt32("IDP");
+            prof = prof.GetProfByID(ID,_professeurDAL);
+            TempData["Prof"] = prof;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ModifyProfil(CProfesseur prof_) {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+
+            CProfesseur prof = new CProfesseur();
+            int? ID = HttpContext.Session.GetInt32("IDP");
+
+            prof = prof.ModifierProfil(prof_,ID,_professeurDAL);
+            if(prof == null) {
+                TempData["Error"] = true;
+                return View(prof_);
+            } else {
+                return RedirectToAction("MonProfil");
+            }
+
         }
         public IActionResult AjoutCourCollectif() {
             if(VerifSession())
@@ -124,6 +158,7 @@ namespace TeacherParadise.Controllers
         public IActionResult ModifierCoursCollectif(CCoursCollectif cours) {
             if(VerifSession())
                 return RedirectToAction("Index","Home");
+
             int ID = HttpContext.Session.GetInt32("IDModifyCour").GetValueOrDefault();
             CCoursCollectif cours_ = cours.ModifyCour(cours,ID,_coursCollectifDAL);
             if(cours_ == null) {
@@ -133,8 +168,8 @@ namespace TeacherParadise.Controllers
                 CatCoursCollectif Catcours = CatCoursCollectif.Instance();
                 Catcours.Remove(cours);
                 Catcours.Add(cours_);
+                return RedirectToAction("ListCourCollectif");
             }
-            return RedirectToAction("ListCourCollectif");
         }
 
         public IActionResult Deconnexion() {

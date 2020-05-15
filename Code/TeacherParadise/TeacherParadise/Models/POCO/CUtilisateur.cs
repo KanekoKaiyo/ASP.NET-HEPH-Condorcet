@@ -47,6 +47,5 @@ namespace TeacherParadise.Models {
 
 
         //Methods
-        abstract public void ModifierProfil(string lastname,string surname,DateTime dob,string email,string password,string phonenumber);
     }
 }

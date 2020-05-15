@@ -48,13 +48,12 @@ namespace TeacherParadise.Models {
             // Fonction qui renvoie l'objet professeur lorsqu'on lui renvoie son ID
             return professeurDAL.GetProfByID(ID);
         }
-        public override void ModifierProfil(string lastname,string surname,DateTime dob,string email,string password,string phonenumber) {
-            this.LastName = lastname;
-            this.SurName = surname;
-            this.DoB = dob;
-            this.Email = email;
-            this.Password = password;
-            this.PhoneNumber = phonenumber;
+        public CProfesseur ModifierProfil(CProfesseur professeur, int? ID, IProfesseurDAL professeurDAL) {
+            CProfesseur prof_ = professeurDAL.ModifyProfil(professeur,ID);
+            if(prof_ == null)
+                return null;
+            else
+                return prof_;
         }
         public void AjoutMatiere() {
             // Envoie un email au webdev pour l'ajout d'une matière

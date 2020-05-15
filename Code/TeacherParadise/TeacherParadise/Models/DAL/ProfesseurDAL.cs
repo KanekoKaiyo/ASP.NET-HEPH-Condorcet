@@ -35,6 +35,18 @@ namespace TeacherParadise.Models.DAL {
             }
         }
 
+        public CProfesseur ModifyProfil(CProfesseur professeur, int? ID) {
+            professeur.ID = (int)ID;
+            _context.Update(professeur);
+            int temp = _context.SaveChanges();
+
+            if(temp != 0) {
+                return professeur;
+            } else {
+                return null;
+            }
+        }
+
         public CProfesseur GetProfByID(int? ID) {
             return Where(pr => pr.ID.Equals(ID)).FirstOrDefault();
         }
