@@ -29,8 +29,8 @@ namespace TeacherParadise.Models {
             this.DateFin = dateFin;
             this.Professeur = professeur;
         }
-        public static List<CConge> GetConge(int? ID, ICongeDAL congeDAL) {
-            List<CConge> conge = congeDAL.GetConge(ID);
+        public static List<CConge> GetConges(int? ID, ICongeDAL congeDAL) {
+            List<CConge> conge = congeDAL.GetConges(ID);
             if(conge == null)
                 return null;
             else

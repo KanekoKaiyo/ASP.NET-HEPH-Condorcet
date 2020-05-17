@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace TeacherParadise.Models.DAL {
     public interface ICongeDAL {
-        List<CConge> GetConge(int? ID);
+        List<CConge> GetConges(int? ID);
         CConge AddConge(CConge conge);
         bool DeleteConge(CConge conge);
         CConge GetConge(int ID);

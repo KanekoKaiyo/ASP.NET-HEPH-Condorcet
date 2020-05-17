@@ -19,7 +19,7 @@ namespace TeacherParadise.Models.DAL {
             else
                 return conge;
         }
-        public List<CConge> GetConge(int? ID) {
+        public List<CConge> GetConges(int? ID) {
             // Fonction qui renvoie la liste de tout les congé du professeur en utilisant son ID
             List<CConge> conge = Where(con => con.Professeur.ID.Equals(ID)).OrderBy(con => con.DateDebut).ToList();
             if(conge == null)

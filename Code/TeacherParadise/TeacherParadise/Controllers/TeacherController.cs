@@ -49,7 +49,7 @@ namespace TeacherParadise.Controllers
 
             TempData["Error"] = false;
             int? ID = HttpContext.Session.GetInt32("IDP").GetValueOrDefault();
-            List<CConge> conge = CConge.GetConge(ID,_congeDAL);
+            List<CConge> conge = CConge.GetConges(ID,_congeDAL);
             TempData["Conge"] = conge;
             return View();
         }

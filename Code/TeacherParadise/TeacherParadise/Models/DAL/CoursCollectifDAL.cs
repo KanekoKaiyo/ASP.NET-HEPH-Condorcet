@@ -74,7 +74,7 @@ namespace TeacherParadise.Models.DAL {
             }
         }
 
-        List<CCoursCollectif> GetCoursByMatiere(string matiere) {
+        public List<CCoursCollectif> GetCoursByMatiere(string matiere) {
             List<CCoursCollectif> cours = Where(cr => cr.Matieres.Equals(matiere)).ToList();
 
             if(cours == null)
