@@ -5,7 +5,11 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<form asp-action="CongeAdded">
+@if((bool)TempData["Error"] == true) {
+    <span> Une erreur est survenue lors de l'ajout, veillez recommencer.</span>
+}
+
+<form asp-action="AjoutConge">
     <table>
         <tr>
             <td>

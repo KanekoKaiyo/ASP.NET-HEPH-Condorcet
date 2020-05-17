@@ -30,6 +30,7 @@ namespace TeacherParadise {
             // Services pour l'injection de dépendance des DAL
             services.AddTransient<IProfesseurDAL,ProfesseurDAL>();
             services.AddTransient<ICoursCollectifDAL,CoursCollectifDAL>();
+            services.AddTransient<ICongeDAL, CongeDAL>();
 
             // Services pour les sessions
             services.AddDistributedMemoryCache();

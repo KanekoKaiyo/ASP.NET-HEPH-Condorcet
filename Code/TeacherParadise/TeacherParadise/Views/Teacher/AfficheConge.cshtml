@@ -1,8 +1,52 @@
-﻿
+﻿@model CConge
 @{
-    ViewData["Title"] = "AfficheConge";
-    //TODO : Affichage de la liste complète des congé avec un bouton pour supprimer chacune, un autre bouton permet d'ajouter des jours de congé via une autre page 
+    ViewData["Title"] = "Mes congés";
+    List<CConge> conge = (List<CConge>)TempData["Conge"];
 }
 
-<h1>AfficheConge</h1>
+<h1>@ViewData["Title"]</h1>
 
+<a asp-action="AjoutConge"> Cliquez ici pour ajouter un congé </a>
+
+@if((bool?)TempData["Error"] == true) {
+    <label> Une erreur est survenue lors de votre opération, veillez recommencer. </label>
+}
+
+<table>
+    <tr>
+        <th>
+            <label asp-for="DateDebut"></label>
+        </th>
+        <th>
+            <label asp-for="DateFin"></label>
+        </th>
+        <th>
+            <label> Supprimer </label>
+        </th>
+        <th>
+            <label> Modifier </label>
+        </th>
+    </tr>
+    @{ 
+        if(conge == null) {
+
+        } else {
+            foreach(CConge c in conge) {
+                <tr>
+                    <td>
+                        <label> @Html.DisplayFor(modelItem => c.DateDebut)</label>
+                    </td>
+                    <td>
+                        <label> @Html.DisplayFor(modelItem => c.DateFin)</label>
+                    </td>
+                    <td>
+                        <form asp-action="DeleteConge">
+                            <input type="hidden" name="id" value="@c.ID"/>
+                            <input type="submit" value="Supprimer" />
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    }
+</table>

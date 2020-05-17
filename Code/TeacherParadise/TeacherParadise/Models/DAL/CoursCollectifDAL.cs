@@ -74,6 +74,14 @@ namespace TeacherParadise.Models.DAL {
             }
         }
 
+        List<CCoursCollectif> GetCoursByMatiere(string matiere) {
+            List<CCoursCollectif> cours = Where(cr => cr.Matieres.Equals(matiere)).ToList();
+
+            if(cours == null)
+                return null;
+            else
+                return cours;
+        }
 
         // Substitution de la fonction Where qui permet de rechercher dans la base de donnée si un (ou des) enregistrement existe ou non en donnant un paramètre à rechercher
         private IEnumerable<CCoursCollectif> Where(params Expression<Func<CCoursCollectif,bool>>[] predicates) {

@@ -16,9 +16,11 @@ namespace TeacherParadise.Controllers
         // Dal Loader
         private readonly ICoursCollectifDAL _coursCollectifDAL;
         private readonly IProfesseurDAL _professeurDAL;
-        public TeacherController(ICoursCollectifDAL coursCollectifDAL,IProfesseurDAL professeurDAL) {
+        private readonly ICongeDAL _congeDAL;
+        public TeacherController(ICoursCollectifDAL coursCollectifDAL,IProfesseurDAL professeurDAL,ICongeDAL congeDAL) {
             _coursCollectifDAL = coursCollectifDAL;
             _professeurDAL = professeurDAL;
+            _congeDAL = congeDAL;
         }
         private bool VerifSession() {
             if(HttpContext.Session.GetString("UserType") != "Professeur")
@@ -44,7 +46,60 @@ namespace TeacherParadise.Controllers
         public IActionResult AfficheConge() {
             if(VerifSession())
                 return RedirectToAction("Index","Home");
+
+            TempData["Error"] = false;
+            int? ID = HttpContext.Session.GetInt32("IDP").GetValueOrDefault();
+            List<CConge> conge = CConge.GetConge(ID,_congeDAL);
+            TempData["Conge"] = conge;
             return View();
+        }
+
+        public IActionResult AjoutConge() {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+            TempData["Error"] = false;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AjoutConge(CConge conge) {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+            
+            if(ModelState.IsValid) {
+                if(conge.DateDebut.Date < DateTime.Now.Date) {
+                    TempData["Error"] = true;
+                    return View(conge);
+                } else {
+                    CProfesseur prof = new CProfesseur();
+                    int? ID = HttpContext.Session.GetInt32("IDP");
+                    conge.Professeur = prof.GetProfByID(ID,_professeurDAL);
+
+                    CConge conge_ = conge.AddConge(conge,_congeDAL);
+                    if(conge_ == null) {
+                        TempData["Error"] = true;
+                        return View(conge);
+                    } else {
+                        return RedirectToAction("AfficheConge");
+                    }
+                }
+            } else {
+                TempData["Error"] = true;
+                return View(conge);
+            }
+        }
+        public IActionResult DeleteConge(int id) {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+
+            CConge conge = CConge.GetConge(id,_congeDAL);
+            bool test = conge.DeleteConge(conge,_congeDAL);
+            if(test == true) {
+                return RedirectToAction("AfficheConge");
+            } else {
+                TempData["Error"] = true;
+                return View();
+            }
         }
         public IActionResult MonProfil() {
             if(VerifSession())
@@ -89,9 +144,9 @@ namespace TeacherParadise.Controllers
             if(VerifSession())
                 return RedirectToAction("Index","Home");
             TempData["Error"] = false;
-            TempData["Success"] = false;
             return View();
         }
+
         [HttpPost]
         public IActionResult AjoutCourCollectif(CCoursCollectif cours) {
             if(VerifSession())

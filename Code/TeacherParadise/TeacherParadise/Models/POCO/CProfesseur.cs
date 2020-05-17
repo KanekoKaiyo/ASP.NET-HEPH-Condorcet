@@ -55,28 +55,5 @@ namespace TeacherParadise.Models {
             else
                 return prof_;
         }
-        public void AjoutMatiere() {
-            // Envoie un email au webdev pour l'ajout d'une matière
-        }
-        // List management Methods
-        //TODO : En plus d'ajouter/retirer/modifier l'objet de la liste personnel il faut effectuer l'opération sur la BDD et mettre a jour les catalogues
-        // Part 1 Adding
-
-        public void AddCCoursCollectif(CCoursCollectif c) {
-            CoursCollectifs.Add(c);
-        }
-
-        public void AddConge(CConge d) {
-            ListeConge.Add(d);
-        }
-        // Part 2 Removing
-
-        public void RemoveCCoursCollectif(CCoursCollectif c) {
-            CoursCollectifs.Remove(c);
-        }
-
-        public void RemoveConge(CConge d) {
-            ListeConge.Remove(d);
-        }
     }
 }

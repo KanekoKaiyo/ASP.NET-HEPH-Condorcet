@@ -10,5 +10,6 @@ namespace TeacherParadise.Models.DAL {
         CCoursCollectif GetCour(int ID);
         bool DeleteCoursCollectif(CCoursCollectif cours);
         CCoursCollectif ModifyCour(CCoursCollectif cours, int ID);
+        List<CCoursCollectif> GetCoursByMatiere(string matiere);
     }
 }

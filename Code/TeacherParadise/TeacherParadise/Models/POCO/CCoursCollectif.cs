@@ -68,10 +68,6 @@ namespace TeacherParadise.Models {
             this.Price = price;
             this.Professeur = professeur;
         }
-
-
-
-
         //Methods
         public static List<CCoursCollectif> GetAllCours(int ID, ICoursCollectifDAL coursCollectifDAL) {
             // Fonction qui renvoie la liste compléte des cours collectif du professeur
@@ -114,6 +110,14 @@ namespace TeacherParadise.Models {
                 return null;
             else
                 return cours_;
+        }
+        List<CCoursCollectif> GetCoursByMatier(string matiere,ICoursCollectifDAL coursCollectifDAL) {
+            List<CCoursCollectif> cours = coursCollectifDAL.GetCoursByMatiere(matiere);
+
+            if(cours == null)
+                return null;
+            else
+                return cours;
         }
 
         public override bool Equals(object obj) {
