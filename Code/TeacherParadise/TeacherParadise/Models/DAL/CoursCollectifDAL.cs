@@ -4,7 +4,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using TeacherParadise.DAL;
-
+/* 
+    Projet scolaire HEPH Condorcet 2019-2020
+    Made by Simon Jonathan        
+*/
 namespace TeacherParadise.Models.DAL {
     public class CoursCollectifDAL : ICoursCollectifDAL {
         private readonly ParadiseContext _context;

@@ -11,7 +11,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TeacherParadise.DAL;
 using TeacherParadise.Models.DAL;
-
+/* 
+    Projet scolaire HEPH Condorcet 2019-2020
+    Made by Simon Jonathan        
+*/
 namespace TeacherParadise {
     public class Startup {
         public Startup(IConfiguration configuration) {

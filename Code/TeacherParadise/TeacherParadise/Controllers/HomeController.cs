@@ -9,7 +9,10 @@ using Microsoft.Extensions.Logging;
 using TeacherParadise.DAL;
 using TeacherParadise.Models;
 using TeacherParadise.Models.DAL;
-
+/* 
+    Projet scolaire HEPH Condorcet 2019-2020
+    Made by Simon Jonathan & Mikel Rousseaux  
+*/
 namespace TeacherParadise.Controllers {
     public class HomeController:Controller {
         [ResponseCache(Duration = 0,Location = ResponseCacheLocation.None,NoStore = true)]

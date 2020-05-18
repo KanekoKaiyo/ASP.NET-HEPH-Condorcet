@@ -3,13 +3,16 @@
     ViewData["Title"] = "Inscription en tant que professeur";
 
 }
-
+<!--
+    Projet scolaire HEPH Condorcet 2019-2020
+    Made by Simon Jonathan
+    -->
 <h1>@ViewData["Title"]</h1>
 
 @if((string)TempData["Error"] == "Error") {
-<span class="alert-danger"> Une erreur est survenu, veillez recommencer </span>
+    <span class="alert-danger"> Une erreur est survenu, veillez recommencer </span>
 } else if((string)TempData["Error"] == "Email") {
-<span class="alert-danger"> Une erreur est survenu, L'email est déjà utilisé </span>
+    <span class="alert-danger"> Une erreur est survenu, L'email est déjà utilisé </span>
 }
 
 <form method="post" asp-action="TeacherInscription">

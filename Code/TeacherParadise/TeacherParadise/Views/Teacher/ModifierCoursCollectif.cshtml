@@ -3,7 +3,10 @@
     ViewData["Title"] = "Modification des informations du cours";
     CCoursCollectif cours = (CCoursCollectif)TempData["CoursC"];
 }
-
+<!--
+    Projet scolaire HEPH Condorcet 2019-2020
+    Made by Simon Jonathan
+    -->
 <h1>@ViewData["Title"]</h1>
 
 <form asp-action="ModifierCoursCollectif" method="post">
@@ -13,7 +16,7 @@
                 <label asp-for="Titre"></label>
             </td>
             <td>
-                <input asp-for="Titre" value="@cours.Titre"/>
+                <input asp-for="Titre" value="@cours.Titre" />
             </td>
             <td>
                 <span asp-validation-for="Titre" class="text-danger"></span>
@@ -35,7 +38,7 @@
                 <label asp-for="Matieres"></label>
             </td>
             <td>
-                <input asp-for="Matieres" value="@cours.Matieres"/>
+                <input asp-for="Matieres" value="@cours.Matieres" />
             </td>
             <td>
                 <span asp-validation-for="Matieres" class="text-danger"></span>
@@ -46,7 +49,7 @@
                 <label asp-for="Niveau"></label>
             </td>
             <td>
-                <input asp-for="Niveau" value="@cours.Niveau"/>
+                <input asp-for="Niveau" value="@cours.Niveau" />
             </td>
             <td>
                 <span asp-validation-for="Niveau" class="text-danger"></span>
@@ -57,7 +60,7 @@
                 <label asp-for="Date"></label>
             </td>
             <td>
-                <input asp-for="Date" value="@cours.Date"/>
+                <input asp-for="Date" value="@cours.Date" />
             </td>
             <td>
                 <span asp-validation-for="Date" class="text-danger"></span>
@@ -68,7 +71,7 @@
                 <label asp-for="StartHour"></label>
             </td>
             <td>
-                <input asp-for="StartHour" value="@cours.StartHour"/>
+                <input asp-for="StartHour" value="@cours.StartHour" />
             </td>
             <td>
                 <span asp-validation-for="StartHour" class="text-danger"></span>
@@ -79,7 +82,7 @@
                 <label asp-for="Price"></label>
             </td>
             <td>
-                <input asp-for="Price" value="@cours.Price"/>
+                <input asp-for="Price" value="@cours.Price" />
             </td>
             <td>
                 <span asp-validation-for="Price" class="text-danger"></span>
@@ -90,7 +93,7 @@
                 <label asp-for="MaxStudent"></label>
             </td>
             <td>
-                <input asp-for="MaxStudent" value="@cours.MaxStudent"/>
+                <input asp-for="MaxStudent" value="@cours.MaxStudent" />
             </td>
             <td>
                 <span asp-validation-for="MaxStudent" class="text-danger"></span>

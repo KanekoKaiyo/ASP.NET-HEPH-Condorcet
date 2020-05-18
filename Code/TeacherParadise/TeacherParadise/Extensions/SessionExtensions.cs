@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
-
+/* 
+    Projet scolaire HEPH Condorcet 2019-2020
+    Made by Simon Jonathan        
+*/
 namespace TeacherParadise.Extensions {
     public static class SessionExtensions {
         public static void Set<T>(this ISession session, string key, T value) {

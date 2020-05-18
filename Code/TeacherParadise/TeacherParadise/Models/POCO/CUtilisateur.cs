@@ -4,7 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using TeacherParadise.Attribute;
-
+/* 
+    Projet scolaire HEPH Condorcet 2019-2020
+    Made by Simon Jonathan        
+*/
 namespace TeacherParadise.Models {
     abstract public class CUtilisateur {
 
@@ -44,8 +47,5 @@ namespace TeacherParadise.Models {
         [Required(ErrorMessage = "Le numéro de téléhpone est obligatoire")]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
-
-
-        //Methods
     }
 }

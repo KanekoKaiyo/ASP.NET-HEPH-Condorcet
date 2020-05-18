@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-
+/* 
+    Projet scolaire HEPH Condorcet 2019-2020
+    Made by Simon Jonathan        
+*/
 namespace TeacherParadise.Attribute {
     public class DoBMajorAttribute:ValidationAttribute {
         public DoBMajorAttribute() : base("La {0} c'est pas valide ! Il faut avoir 18 ans minimum") { }

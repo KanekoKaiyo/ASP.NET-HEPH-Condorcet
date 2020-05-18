@@ -92591,19 +92591,6 @@
 							"text": "CMatières contient 2 liste qui contient un titre et un niveau lié à celui ci.\nPar exemple : \nMath - 2éme secondaire\nScience - 5éme secondaire\nC# - 3éme Bachelier\n\n( Le prof ne choisis qu'un niveau, le plus haut pour lui )\n\nLa catalogue contriendra une liste a l'ouverture du site, les utilsateurs pourront demander à ajouter des éléments si besoin."
 						},
 						{
-							"_type": "UMLNoteView",
-							"_id": "AAAAAAFxMIY7kVPTrs8=",
-							"_parent": {
-								"$ref": "AAAAAAFxMFFWNDlF4Eo="
-							},
-							"font": "Arial;13;0",
-							"left": 16,
-							"top": 16,
-							"width": 160,
-							"height": 136,
-							"text": "* à la fin d'une variable  = Variable référent\n_Devant une méthode = méthode qui appel une méthode d'une autre classe"
-						},
-						{
 							"_type": "UMLClassView",
 							"_id": "AAAAAAFxMI0fXWAqRoY=",
 							"_parent": {
@@ -94650,8 +94637,8 @@
 								"$ref": "AAAAAAFxMFFWNDlF4Eo="
 							},
 							"font": "Arial;13;0",
-							"left": 1432,
-							"top": 16,
+							"left": 1112,
+							"top": 40,
 							"width": 137,
 							"height": 105,
 							"text": "- Cardinalité\n- Priorité  :\n  1) Inscription\n  2) Matières\n  3) Cours"
@@ -94663,8 +94650,8 @@
 								"$ref": "AAAAAAFxMFFWNDlF4Eo="
 							},
 							"font": "Arial;13;0",
-							"left": 1592,
-							"top": 32,
+							"left": 1272,
+							"top": 56,
 							"width": 288,
 							"height": 80,
 							"text": "Mikel : Vert\nCardinalité"
@@ -94676,8 +94663,8 @@
 								"$ref": "AAAAAAFxMFFWNDlF4Eo="
 							},
 							"font": "Arial;13;0",
-							"left": 1568,
-							"top": 152,
+							"left": 1248,
+							"top": 176,
 							"width": 177,
 							"height": 41,
 							"text": "Jonathan : Rouge"
@@ -94689,8 +94676,8 @@
 								"$ref": "AAAAAAFxMFFWNDlF4Eo="
 							},
 							"font": "Arial;13;0",
-							"left": 1576,
-							"top": 240,
+							"left": 1256,
+							"top": 264,
 							"width": 168,
 							"height": 64,
 							"text": "Ensemble : Bleu"

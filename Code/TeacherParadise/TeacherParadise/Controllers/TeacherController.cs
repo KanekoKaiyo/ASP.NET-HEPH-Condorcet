@@ -7,7 +7,10 @@ using Microsoft.AspNetCore.Http;
 using TeacherParadise.Models;
 using TeacherParadise.Models.DAL;
 using System.Runtime.InteropServices.WindowsRuntime;
-
+/* 
+    Projet scolaire HEPH Condorcet 2019-2020
+    Made by Simon Jonathan        
+*/
 namespace TeacherParadise.Controllers
 {
     public class TeacherController : Controller
@@ -67,7 +70,7 @@ namespace TeacherParadise.Controllers
                 return RedirectToAction("Index","Home");
             
             if(ModelState.IsValid) {
-                if(conge.DateDebut.Date < DateTime.Now.Date) {
+                if(conge.DateDebut.Date < DateTime.Now.Date || conge.DateDebut.Date > conge.DateFin.Date) {
                     TempData["Error"] = true;
                     return View(conge);
                 } else {
@@ -75,7 +78,7 @@ namespace TeacherParadise.Controllers
                     int? ID = HttpContext.Session.GetInt32("IDP");
                     conge.Professeur = prof.GetProfByID(ID,_professeurDAL);
 
-                    CConge conge_ = conge.AddConge(conge,_congeDAL);
+                    CConge conge_ = conge.AddConge(conge,ID,_congeDAL);
                     if(conge_ == null) {
                         TempData["Error"] = true;
                         return View(conge);
@@ -159,24 +162,42 @@ namespace TeacherParadise.Controllers
                     TempData["Error"] = true;
                     return View(cours);
                 } else {
-                    // Avant d'ajouté le cours dans la DB il faut recuperer l'objet professeur dans la DB
-                    CProfesseur prof = new CProfesseur();
+                    //Avant de faire quoi que ce sois il faut vérifier si la date du cours ce trouve dans un intervalle de congé ou non
                     int? ID = HttpContext.Session.GetInt32("IDP");
-                    // On ajoute l'objet professeur dans l'objet cours, enfin la référence
-                    cours.Professeur = prof.GetProfByID(ID, _professeurDAL);
-                    // On tente l'ajout dans la db 
-                    CCoursCollectif cours_ = cours.AddCours(cours,_coursCollectifDAL);
+                    List<CConge> conge = CConge.GetConges(ID,_congeDAL);
+                    bool test = false;
 
-                    if(cours_ == null) {
-                        // Création impossible car la date et l'heure est déjà prise
+                    foreach(CConge c in conge) {
+                        if(cours.Date >= c.DateDebut && cours.Date <= c.DateFin) {
+                            // La date du cours ce trouve dans un congé, on ne peut pas l'ajouté
+                            test = true;
+                            break;
+                        }
+                    }
+                    if(test == false) {
+                        // Avant d'ajouté le cours dans la DB il faut recuperer l'objet professeur dans la DB
+                        CProfesseur prof = new CProfesseur();
+
+                        // On ajoute l'objet professeur dans l'objet cours, enfin la référence
+                        cours.Professeur = prof.GetProfByID(ID,_professeurDAL);
+                        // On tente l'ajout dans la db 
+                        CCoursCollectif cours_ = cours.AddCours(cours,_coursCollectifDAL);
+
+                        if(cours_ == null) {
+                            // Création impossible car la date et l'heure est déjà prise
+                            TempData["Error"] = true;
+                            return View(cours);
+                        } else {
+                            // On ajoute l'element dans le singleton si il a bien était ajouté dans la base de donnée
+                            CatCoursCollectif Catcours = CatCoursCollectif.Instance();
+                            Catcours.Add(cours_);
+                            return RedirectToAction("ListCourCollectif");
+                        }
+                    } else {
                         TempData["Error"] = true;
                         return View(cours);
-                    } else {
-                        // On ajoute l'element dans le singleton si il a bien était ajouté dans la base de donnée
-                        CatCoursCollectif Catcours = CatCoursCollectif.Instance();
-                        Catcours.Add(cours_);
-                        return RedirectToAction("ListCourCollectif");
                     }
+                    
                 }
             } else {
                 // Si une autre erreur est survenue, par exemple si la validation du formulaire client est désactivé

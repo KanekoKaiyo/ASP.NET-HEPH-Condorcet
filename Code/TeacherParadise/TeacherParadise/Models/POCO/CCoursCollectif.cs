@@ -4,7 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using TeacherParadise.Models.DAL;
-
+/* 
+    Projet scolaire HEPH Condorcet 2019-2020
+    Made by Simon Jonathan        
+*/
 namespace TeacherParadise.Models {
     public class CCoursCollectif {
 
@@ -132,6 +135,22 @@ namespace TeacherParadise.Models {
             } else {
                 return false;
             }
+        }
+
+        public override int GetHashCode() {
+            HashCode hash = new HashCode();
+            hash.Add(ID);
+            hash.Add(Titre);
+            hash.Add(Description);
+            hash.Add(Matieres);
+            hash.Add(Niveau);
+            hash.Add(Date);
+            hash.Add(StartHour);
+            hash.Add(MaxStudent);
+            hash.Add(CurrentStudent);
+            hash.Add(Price);
+            hash.Add(Professeur);
+            return hash.ToHashCode();
         }
     }
 }
