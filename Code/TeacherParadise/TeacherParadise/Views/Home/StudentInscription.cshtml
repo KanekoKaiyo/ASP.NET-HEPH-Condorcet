@@ -1,0 +1,91 @@
+﻿@model TeacherParadise.Models.CEleve
+@{
+    ViewData["Title"] = "Inscription en tant que professeur";
+
+}
+<h1>@ViewData["Title"]</h1>
+
+@if((string)TempData["Error"] == "Error") {
+    <span class="alert-danger"> Une erreur est survenue, veillez recommencer </span>
+} else if((string)TempData["Error"] == "Email") {
+    <span class="alert-danger"> Une erreur est survenue, L'email est déjà utilisé </span>
+}
+
+<form method="post" asp-action="StudentInscription">
+    <table>
+        <tr>
+            <td>
+                <label asp-for="LastName"></label>
+            </td>
+            <td>
+                <input asp-for="LastName" />
+            </td>
+            <td>
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="SurName"></label>
+            </td>
+            <td>
+                <input asp-for="SurName" />
+            </td>
+            <td>
+                <span asp-validation-for="SurName" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="DoB"></label>
+            </td>
+            <td>
+                <input asp-for="DoB" />
+            </td>
+            <td>
+                <span asp-validation-for="DoB" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Email"></label>
+            </td>
+            <td>
+                <input asp-for="Email" />
+            </td>
+            <td>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Password"></label>
+            </td>
+            <td>
+                <input asp-for="Password" />
+            </td>
+            <td>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="PhoneNumber"></label>
+            </td>
+            <td>
+                <input asp-for="PhoneNumber" />
+            </td>
+            <td>
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a asp-action="Index"> Retour </a>
+            </td>
+            <td colspan="2">
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+</form>

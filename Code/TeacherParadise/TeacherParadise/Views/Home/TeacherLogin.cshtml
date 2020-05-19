@@ -1,0 +1,48 @@
+﻿@model CProfesseur
+@{
+    ViewData["Title"] = "Connexion en tant que professeur";
+}
+<!--
+    Projet scolaire HEPH Condorcet 2019-2020
+    Made by Simon Jonathan
+    -->
+<h1>@ViewData["Title"]</h1>
+@if((bool)TempData["Error"] == true) {
+    <label class="alert-danger"> Une erreur est survenu lors de votre tentative de connexion ! Vérifiez vos informations et recommencer </label>
+}
+
+<form method="post" asp-action="TeacherLogin">
+    <table>
+        <tr>
+            <td>
+                <label asp-for="Email"></label>
+            </td>
+            <td>
+                <input asp-for="Email" />
+            </td>
+            <td>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Password"></label>
+            </td>
+            <td>
+                <input asp-for="Password" />
+            </td>
+            <td>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a asp-action="Index"> Retour </a>
+            </td>
+            <td colspan="2">
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+
+</form>

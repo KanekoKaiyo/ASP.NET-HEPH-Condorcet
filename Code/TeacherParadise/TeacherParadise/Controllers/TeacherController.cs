@@ -1,0 +1,256 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using TeacherParadise.Models;
+using TeacherParadise.Models.DAL;
+using System.Runtime.InteropServices.WindowsRuntime;
+/* 
+    Projet scolaire HEPH Condorcet 2019-2020
+    Made by Simon Jonathan        
+*/
+namespace TeacherParadise.Controllers
+{
+    public class TeacherController : Controller
+    {
+        // My Controller
+        // Dal Loader
+        private readonly ICoursCollectifDAL _coursCollectifDAL;
+        private readonly IProfesseurDAL _professeurDAL;
+        private readonly ICongeDAL _congeDAL;
+        public TeacherController(ICoursCollectifDAL coursCollectifDAL,IProfesseurDAL professeurDAL,ICongeDAL congeDAL) {
+            _coursCollectifDAL = coursCollectifDAL;
+            _professeurDAL = professeurDAL;
+            _congeDAL = congeDAL;
+        }
+        private bool VerifSession() {
+            if(HttpContext.Session.GetString("UserType") != "Professeur")
+                return true;
+            else
+                return false;
+        }
+        public IActionResult Index() {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+            return View();
+        }
+
+        public IActionResult ListCourCollectif() {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+            int ID = HttpContext.Session.GetInt32("IDP").GetValueOrDefault();
+            CatCoursCollectif cours = CatCoursCollectif.Instance(ID,_coursCollectifDAL);
+            //List<CCoursCollectif> cours = CCoursCollectif.GetAllCours(ID,_coursCollectifDAL);
+            TempData["CoursC"] = cours;
+            return View();
+        }
+        public IActionResult AfficheConge() {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+
+            TempData["Error"] = false;
+            int? ID = HttpContext.Session.GetInt32("IDP").GetValueOrDefault();
+            List<CConge> conge = CConge.GetConges(ID,_congeDAL);
+            TempData["Conge"] = conge;
+            return View();
+        }
+
+        public IActionResult AjoutConge() {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+            TempData["Error"] = false;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AjoutConge(CConge conge) {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+            
+            if(ModelState.IsValid) {
+                if(conge.DateDebut.Date < DateTime.Now.Date || conge.DateDebut.Date > conge.DateFin.Date) {
+                    TempData["Error"] = true;
+                    return View(conge);
+                } else {
+                    CProfesseur prof = new CProfesseur();
+                    int? ID = HttpContext.Session.GetInt32("IDP");
+                    conge.Professeur = prof.GetProfByID(ID,_professeurDAL);
+
+                    CConge conge_ = conge.AddConge(conge,ID,_congeDAL);
+                    if(conge_ == null) {
+                        TempData["Error"] = true;
+                        return View(conge);
+                    } else {
+                        return RedirectToAction("AfficheConge");
+                    }
+                }
+            } else {
+                TempData["Error"] = true;
+                return View(conge);
+            }
+        }
+        public IActionResult DeleteConge(int id) {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+
+            CConge conge = CConge.GetConge(id,_congeDAL);
+            bool test = conge.DeleteConge(conge,_congeDAL);
+            if(test == true) {
+                return RedirectToAction("AfficheConge");
+            } else {
+                TempData["Error"] = true;
+                return View();
+            }
+        }
+        public IActionResult MonProfil() {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+
+            CProfesseur prof = new CProfesseur();
+            int? ID = HttpContext.Session.GetInt32("IDP");
+            prof = prof.GetProfByID(ID,_professeurDAL);
+            TempData["Prof"] = prof;
+            return View();
+        }
+
+        public IActionResult ModifyProfil() {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+
+            CProfesseur prof = new CProfesseur();
+            int? ID = HttpContext.Session.GetInt32("IDP");
+            prof = prof.GetProfByID(ID,_professeurDAL);
+            TempData["Prof"] = prof;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ModifyProfil(CProfesseur prof_) {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+
+            CProfesseur prof = new CProfesseur();
+            int? ID = HttpContext.Session.GetInt32("IDP");
+
+            prof = prof.ModifierProfil(prof_,ID,_professeurDAL);
+            if(prof == null) {
+                TempData["Error"] = true;
+                return View(prof_);
+            } else {
+                return RedirectToAction("MonProfil");
+            }
+
+        }
+        public IActionResult AjoutCourCollectif() {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+            TempData["Error"] = false;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AjoutCourCollectif(CCoursCollectif cours) {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+
+            // Vérification que le model est valide
+            if(ModelState.IsValid) {
+                // Vérification que la date du cours est postérieur, donc on peut prévoir un cours pour le lendemain, pas pour le jour même ou les jours précédents
+                if(cours.Date.Date < DateTime.Now.Date) {
+                    TempData["Error"] = true;
+                    return View(cours);
+                } else {
+                    //Avant de faire quoi que ce sois il faut vérifier si la date du cours ce trouve dans un intervalle de congé ou non
+                    int? ID = HttpContext.Session.GetInt32("IDP");
+                    List<CConge> conge = CConge.GetConges(ID,_congeDAL);
+                    bool test = false;
+
+                    foreach(CConge c in conge) {
+                        if(cours.Date >= c.DateDebut && cours.Date <= c.DateFin) {
+                            // La date du cours ce trouve dans un congé, on ne peut pas l'ajouté
+                            test = true;
+                            break;
+                        }
+                    }
+                    if(test == false) {
+                        // Avant d'ajouté le cours dans la DB il faut recuperer l'objet professeur dans la DB
+                        CProfesseur prof = new CProfesseur();
+
+                        // On ajoute l'objet professeur dans l'objet cours, enfin la référence
+                        cours.Professeur = prof.GetProfByID(ID,_professeurDAL);
+                        // On tente l'ajout dans la db 
+                        CCoursCollectif cours_ = cours.AddCours(cours,_coursCollectifDAL);
+
+                        if(cours_ == null) {
+                            // Création impossible car la date et l'heure est déjà prise
+                            TempData["Error"] = true;
+                            return View(cours);
+                        } else {
+                            // On ajoute l'element dans le singleton si il a bien était ajouté dans la base de donnée
+                            CatCoursCollectif Catcours = CatCoursCollectif.Instance();
+                            Catcours.Add(cours_);
+                            return RedirectToAction("ListCourCollectif");
+                        }
+                    } else {
+                        TempData["Error"] = true;
+                        return View(cours);
+                    }
+                    
+                }
+            } else {
+                // Si une autre erreur est survenue, par exemple si la validation du formulaire client est désactivé
+                TempData["Error"] = true;
+                return View(cours);
+            }
+        }
+        
+        public IActionResult DeleteCoursCollectif(int id) {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+
+            CCoursCollectif cours = CCoursCollectif.GetCour(id,_coursCollectifDAL);
+            bool test = cours.DeleteCoursCollectif(cours,_coursCollectifDAL);
+            if (test == true) {
+                CatCoursCollectif Catcours = CatCoursCollectif.Instance();
+                Catcours.Remove(cours);
+                return RedirectToAction("ListCourCollectif");
+            } else {
+                TempData["Error"] = true;
+                return RedirectToAction("ListCourCollectif");
+            }
+        }
+        public IActionResult ModifierCoursCollectif(int id) {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+
+            CCoursCollectif cours = CCoursCollectif.GetCour(id,_coursCollectifDAL);
+            TempData["CoursC"] = cours;
+            HttpContext.Session.SetInt32("IDModifyCour",id);
+            return View();
+        }
+        [HttpPost]
+        public IActionResult ModifierCoursCollectif(CCoursCollectif cours) {
+            if(VerifSession())
+                return RedirectToAction("Index","Home");
+
+            int ID = HttpContext.Session.GetInt32("IDModifyCour").GetValueOrDefault();
+            CCoursCollectif cours_ = cours.ModifyCour(cours,ID,_coursCollectifDAL);
+            if(cours_ == null) {
+                TempData["Error"] = true;
+                return View(cours);
+            } else {
+                CatCoursCollectif Catcours = CatCoursCollectif.Instance();
+                Catcours.Remove(cours);
+                Catcours.Add(cours_);
+                return RedirectToAction("ListCourCollectif");
+            }
+        }
+
+        public IActionResult Deconnexion() {
+            HttpContext.Session.SetString("UserType","Nothings");
+            return RedirectToAction("Index","Home");
+        }
+    }
+}

@@ -1,0 +1,48 @@
+﻿@model TeacherParadise.Models.CConge
+@{
+    ViewData["Title"] = "Ajouter une période de congé";
+}
+<!--
+    Projet scolaire HEPH Condorcet 2019-2020
+    Made by Simon Jonathan
+    -->
+<h1>@ViewData["Title"]</h1>
+
+@if((bool)TempData["Error"] == true) {
+    <span> Une erreur est survenue lors de l'ajout, veillez recommencer.</span>
+}
+
+<form asp-action="AjoutConge">
+    <table>
+        <tr>
+            <td>
+                <label asp-for="DateDebut"></label>
+            </td>
+            <td>
+                <input asp-for="DateDebut" />
+            </td>
+            <td>
+                <span asp-validation-for="DateDebut" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="DateFin"></label>
+            </td>
+            <td>
+                <input asp-for="DateFin" />
+            </td>
+            <td>
+                <span asp-validation-for="DateFin" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a asp-action="Index"> Retour </a>
+            </td>
+            <td colspan="2">
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+</form>

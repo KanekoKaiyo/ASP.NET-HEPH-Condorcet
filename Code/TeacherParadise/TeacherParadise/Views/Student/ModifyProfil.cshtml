@@ -1,0 +1,96 @@
+﻿@model CProfesseur
+@{
+    ViewData["Title"] = "Modifier mon Profil";
+    CProfesseur prof = (CProfesseur)TempData["Prof"];
+}
+<!--
+    Projet scolaire HEPH Condorcet 2019-2020
+    Made by Simon Jonathan
+    -->
+<h1>@ViewData["Title"]</h1>
+
+@{
+    if(prof == null) {
+        <label> Une erreur est survenu lors du chargement de votre profil, veillez réessayer.</label>
+    } else {
+        <form asp-action="ModifyProfil" method="post">
+            <table>
+                <tr>
+                    <td>
+                        <label asp-for="LastName"></label>
+                    </td>
+                    <td>
+                        <input asp-for="LastName" value="@prof.LastName" />
+                    </td>
+                    <td>
+                        <span asp-validation-for="LastName"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="SurName"></label>
+                    </td>
+                    <td>
+                        <input asp-for="SurName" value="@prof.SurName" />
+                    </td>
+                    <td>
+                        <span asp-validation-for="SurName"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="DoB"></label>
+                    </td>
+                    <td>
+                        <input asp-for="DoB" value="@prof.DoB" /> <label> @Html.DisplayFor(modelItem => prof.DoB) </label>
+                    </td>
+                    <td>
+                        <span asp-validation-for="DoB"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="Email"></label>
+                    </td>
+                    <td>
+                        <input asp-for="Email" value="@prof.Email" />
+                    </td>
+                    <td>
+                        <span asp-validation-for="Email"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="PhoneNumber"></label>
+                    </td>
+                    <td>
+                        <input asp-for="PhoneNumber" value="@prof.PhoneNumber" />
+                    </td>
+                    <td>
+                        <span asp-validation-for="PhoneNumber"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="Password"></label>
+                    </td>
+                    <td>
+                        <input asp-for="Password" value="@prof.Password" />
+                    </td>
+                    <td>
+                        <span asp-validation-for="Password"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a asp-action="MonProfil"> Retour </a>
+                    </td>
+                    <td colspan="2">
+                        <input type="submit" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    }
+
+}

@@ -1,0 +1,92 @@
+﻿@model CCoursCollectif
+@{
+    ViewData["Title"] = "La liste de vos cours collectifs";
+    CatCoursCollectif cours = (CatCoursCollectif)TempData["CoursC"];
+}
+<!--
+    Projet scolaire HEPH Condorcet 2019-2020
+    Made by Simon Jonathan
+    -->
+<h1>@ViewData["Title"]</h1>
+
+<a asp-action="AjoutCourCollectif"> Cliquez ici pour ajouter un cours </a>
+
+@if((bool?)TempData["Error"] == true) {
+    <label> Une erreur est survenue lors de votre opération, veillez recommencer. </label>
+}
+
+<table>
+    <tr>
+        <th>
+            <label asp-for="Titre"></label>
+        </th>
+        <th>
+            <label asp-for="Description"></label>
+        </th>
+        <th>
+            <label asp-for="Matieres"></label>
+        </th>
+        <th>
+            <label asp-for="Date"></label>
+        </th>
+        <th>
+            <label asp-for="StartHour"></label>
+        </th>
+        <th>
+            <label asp-for="MaxStudent"></label>
+        </th>
+        <th>
+            <label asp-for="Price"></label>
+        </th>
+        <th>
+            <label> Supprimer </label>
+        </th>
+        <th>
+            <label> Modifier </label>
+        </th>
+    </tr>
+    @{
+        if(cours == null) {
+
+        } else {
+            foreach(CCoursCollectif c in cours.ListCC) {
+                <tr>
+                    <td>
+                        <label> @Html.DisplayFor(modelItem => c.Titre)   </label>
+                    </td>
+                    <td>
+                        <label> @Html.DisplayFor(modelItem => c.Description)   </label>
+                    </td>
+                    <td>
+                        <label> @Html.DisplayFor(modelItem => c.Matieres)   </label>
+                    </td>
+                    <td>
+                        <label> @Html.DisplayFor(modelItem => c.Date)   </label>
+                    </td>
+                    <td>
+                        <label> @Html.DisplayFor(modelItem => c.StartHour)   </label>
+                    </td>
+                    <td>
+                        <label> @Html.DisplayFor(modelItem => c.MaxStudent)   </label>
+                    </td>
+                    <td>
+                        <label> @Html.DisplayFor(modelItem => c.Price)   </label>
+                    </td>
+                    <td>
+                        <form asp-action="DeleteCoursCollectif" method="get">
+                            <input type="hidden" name="id" value="@Html.DisplayFor(modelItem => c.ID)" />
+                            <input type="submit" value="Supprimer" />
+                        </form>
+                    </td>
+                    <td>
+                        <form asp-action="ModifierCoursCollectif" method="get">
+                            <input type="hidden" name="id" value="@Html.DisplayFor(modelItem => c.ID)" />
+                            <input type="submit" value="Modifier" />
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+
+    }
+</table>

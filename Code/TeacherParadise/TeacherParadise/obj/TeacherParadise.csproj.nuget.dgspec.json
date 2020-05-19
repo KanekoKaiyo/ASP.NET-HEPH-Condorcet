@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\C#\\ProjetASP\\ASP.NET-HEPH-Condorcet\\Code\\TeacherParadise\\TeacherParadise\\TeacherParadise.csproj": {}
+    "C:\\Users\\User\\Desktop\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\Code\\TeacherParadise\\TeacherParadise\\TeacherParadise.csproj": {}
   },
   "projects": {
-    "D:\\Code\\C#\\ProjetASP\\ASP.NET-HEPH-Condorcet\\Code\\TeacherParadise\\TeacherParadise\\TeacherParadise.csproj": {
+    "C:\\Users\\User\\Desktop\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\Code\\TeacherParadise\\TeacherParadise\\TeacherParadise.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\C#\\ProjetASP\\ASP.NET-HEPH-Condorcet\\Code\\TeacherParadise\\TeacherParadise\\TeacherParadise.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\Code\\TeacherParadise\\TeacherParadise\\TeacherParadise.csproj",
         "projectName": "TeacherParadise",
-        "projectPath": "D:\\Code\\C#\\ProjetASP\\ASP.NET-HEPH-Condorcet\\Code\\TeacherParadise\\TeacherParadise\\TeacherParadise.csproj",
-        "packagesPath": "C:\\Users\\mahal\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\C#\\ProjetASP\\ASP.NET-HEPH-Condorcet\\Code\\TeacherParadise\\TeacherParadise\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\Code\\TeacherParadise\\TeacherParadise\\TeacherParadise.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\Code\\TeacherParadise\\TeacherParadise\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\mahal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -41,6 +41,30 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Debug": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -59,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
