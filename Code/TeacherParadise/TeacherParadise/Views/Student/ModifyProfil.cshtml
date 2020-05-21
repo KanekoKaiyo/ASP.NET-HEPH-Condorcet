@@ -1,16 +1,13 @@
-﻿@model CProfesseur
+﻿@model TeacherParadise.Models.POCO.CEleve
 @{
     ViewData["Title"] = "Modifier mon Profil";
-    CProfesseur prof = (CProfesseur)TempData["Prof"];
+    TeacherParadise.Models.POCO.CEleve eleve = (TeacherParadise.Models.POCO.CEleve)TempData["Eleve"];
 }
-<!--
-    Projet scolaire HEPH Condorcet 2019-2020
-    Made by Simon Jonathan
-    -->
+
 <h1>@ViewData["Title"]</h1>
 
 @{
-    if(prof == null) {
+    if(eleve == null) {
         <label> Une erreur est survenu lors du chargement de votre profil, veillez réessayer.</label>
     } else {
         <form asp-action="ModifyProfil" method="post">
@@ -20,7 +17,7 @@
                         <label asp-for="LastName"></label>
                     </td>
                     <td>
-                        <input asp-for="LastName" value="@prof.LastName" />
+                        <input asp-for="LastName" value="@eleve.LastName" />
                     </td>
                     <td>
                         <span asp-validation-for="LastName"></span>
@@ -31,7 +28,7 @@
                         <label asp-for="SurName"></label>
                     </td>
                     <td>
-                        <input asp-for="SurName" value="@prof.SurName" />
+                        <input asp-for="SurName" value="@eleve.SurName" />
                     </td>
                     <td>
                         <span asp-validation-for="SurName"></span>
@@ -42,7 +39,7 @@
                         <label asp-for="DoB"></label>
                     </td>
                     <td>
-                        <input asp-for="DoB" value="@prof.DoB" /> <label> @Html.DisplayFor(modelItem => prof.DoB) </label>
+                        <input asp-for="DoB" value="@eleve.DoB" /> <label> @Html.DisplayFor(modelItem => eleve.DoB) </label>
                     </td>
                     <td>
                         <span asp-validation-for="DoB"></span>
@@ -53,7 +50,7 @@
                         <label asp-for="Email"></label>
                     </td>
                     <td>
-                        <input asp-for="Email" value="@prof.Email" />
+                        <input asp-for="Email" value="@eleve.Email" />
                     </td>
                     <td>
                         <span asp-validation-for="Email"></span>
@@ -64,7 +61,7 @@
                         <label asp-for="PhoneNumber"></label>
                     </td>
                     <td>
-                        <input asp-for="PhoneNumber" value="@prof.PhoneNumber" />
+                        <input asp-for="PhoneNumber" value="@eleve.PhoneNumber" />
                     </td>
                     <td>
                         <span asp-validation-for="PhoneNumber"></span>
@@ -75,7 +72,7 @@
                         <label asp-for="Password"></label>
                     </td>
                     <td>
-                        <input asp-for="Password" value="@prof.Password" />
+                        <input asp-for="Password" value="@eleve.Password" />
                     </td>
                     <td>
                         <span asp-validation-for="Password"></span>

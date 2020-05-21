@@ -12,5 +12,6 @@ namespace TeacherParadise.Models.DAL
         CEleve VerifEleve(CEleve eleve);
         CEleve GetEleveByID(int? ID);
         CEleve ModifyProfil(CEleve eleve, int? ID);
+        CEleve ChangerNvEtude(string niveauetude);
     }
 }

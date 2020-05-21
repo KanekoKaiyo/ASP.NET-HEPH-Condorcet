@@ -9,14 +9,14 @@ namespace TeacherParadise.Models.POCO
     public class CEleve:CUtilisateur
     {
         // Attributs
-        public virtual List<CCoursCollectif> CoursCollectifs { get; set; }
-        public virtual List<CConge> ListeConge { get; set; }
+        public string NiveauEtude { get; set; }
+        public virtual List<CReservationCoursCollectif> ReservationCoursCollectifs { get; set; }
         // Constructor
         public CEleve()
         {
             //Constructeur vide pour Entity Framework
         }
-        public CEleve(string lastName, string surName, DateTime doB, string email, string password, string phoneNumber)
+        public CEleve(string lastName, string surName, DateTime doB, string email, string password, string phoneNumber, string niveauetude)
         {
             this.LastName = lastName;
             this.SurName = surName;
@@ -24,49 +24,56 @@ namespace TeacherParadise.Models.POCO
             this.Email = email;
             this.Password = password;
             this.PhoneNumber = phoneNumber;
-            CoursCollectifs = new List<CCoursCollectif>();
-            ListeConge = new List<CConge>();
+            ReservationCoursCollectifs = new List<CReservationCoursCollectif>();
+            this.NiveauEtude = niveauetude;
+            
         }
 
+        
+
         // Methods
-        public CEleve AjoutEleve(CEleve eleve, IEleveDal eleveDAL)
+        public CEleve AjoutEleve(CEleve eleve, IEleveDal EleveDAL)
         {
-            // Fonction d'ajout dans la base de donnée, demande à la classe dal de le faire, la classe dal vérifie si c'est possible et renvoie une réponse, si null l'ajout a échoué car l'email est déjà utilisé, si c'est bon elle renvoie l'objet au controller
-            CEleve eleve = eleveDAL.AddEleve(eleve);
-            if (eleve == null)
+            
+            CEleve el = EleveDAL.AddEleve(eleve);
+            if (el == null)
             {
                 return null;
             }
             else
             {
-                return eleve;
+                return el;
             }
         }
-        public CEleve VerifEleve(CEleve eleve, IEleveDal eleveDAL)
+        public CEleve VerifEleve(CEleve eleve, IEleveDal EleveDAL)
         {
             // Fonction de vérification du login
-            CEleve eleve = eleveDAL.VerifEleve(eleve);
-            if (eleve == null)
+            CEleve el = EleveDAL.VerifEleve(eleve);
+            if (el == null)
             {
                 return null;
             }
             else
             {
-                return eleve;
+                return el;
             }
         }
-        public CEleve GetEleveByID(int? ID, IEleveDal eleveDAL)
+        public CEleve GetEleveByID(int? ID, IEleveDal EleveDAL)
         {
             // Fonction qui renvoie l'objet professeur lorsqu'on lui renvoie son ID
-            return eleveDAL.GetEleveByID(ID);
+            return EleveDAL.GetEleveByID(ID);
         }
-        public CEleve ModifierProfil(CEleve eleve, int? ID, IEleveDal eleveDAL)
+        public CEleve ModifierProfil(CEleve eleve, int? ID, IEleveDal EleveDAL)
         {
-            CEleve eleve_ = eleveDAL.ModifyProfil(eleve, ID);
+            CEleve eleve_ = EleveDAL.ModifyProfil(eleve, ID);
             if (eleve_ == null)
                 return null;
             else
                 return eleve_;
+        }
+        public CEleve ChangerNvEtude(CEleve eleve, int? ID, IEleveDal EleveDAL)
+        {
+            return EleveDAL.ChangerNvEtude(NiveauEtude);
         }
 
     }

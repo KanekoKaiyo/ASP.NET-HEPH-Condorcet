@@ -18,11 +18,11 @@ namespace TeacherParadise.Models.DAL
         public CEleve AddEleve(CEleve eleve)
         {
             // check de l'email, si présent on renvoie null sinon on ajoute 
-            CEleve eleves = Where(el => el.Email.Equals(eleve.Email)).FirstOrDefault();
+            CEleve el = Where(ele => ele.Email.Equals(eleve.Email)).FirstOrDefault();
 
-            if (eleves == null)
+            if (el == null)
             {
-                _context.eleves.Add(eleve);
+                _context.Eleves.Add(eleve);
                 _context.SaveChanges();
                 return eleve;
             }
@@ -35,8 +35,8 @@ namespace TeacherParadise.Models.DAL
         public CEleve VerifEleve(CEleve eleve)
         {
             // check des log-in et mail pour vérifier que ce soit valide. SI non concordance : NULL
-            CEleve eleve = Where(el => el.Email.Equals(eleve.Email) && el.Password.Equals(eleve.Password)).FirstOrDefault();
-            if (eleve == null)
+            CEleve el = Where(ele => ele.Email.Equals(eleve.Email) && ele.Password.Equals(eleve.Password)).FirstOrDefault();
+            if (el == null)
             {
                 return null; 
             }
@@ -66,7 +66,9 @@ namespace TeacherParadise.Models.DAL
         {
             return Where(el => el.ID.Equals(ID)).FirstOrDefault();
         }
-        private IEnumerable<CEleve> Where(params Expression<Func<CEleve, bool>>[] predicates)
+                   
+        
+        private IEnumerable<CEleve> Where(params Expression<Func<CEleve, bool>>[] predicates) //méthode de substitution pour le where
         {
             IQueryable<CEleve> query = _context.Eleves;
             foreach (var predicate in predicates)
@@ -74,6 +76,23 @@ namespace TeacherParadise.Models.DAL
                 query = query.Where(predicate);
             }
             return query.ToList();
+        }
+
+        public CEleve ChangerNvEtude(string niveauetude)
+        {
+            CEleve eleve = _context.Eleves.FirstOrDefault(el => el.NiveauEtude == niveauetude);
+            _context.Update(niveauetude);
+            int temp = _context.SaveChanges();
+
+            if (temp != 0)
+            {
+                return eleve;
+            }
+            else
+            {
+                return null;
+            }
+            //return Where(el => el.ID.NiveauEtude).FirstOrDefault;
         }
     }
 }

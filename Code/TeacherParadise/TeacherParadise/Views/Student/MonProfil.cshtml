@@ -1,16 +1,13 @@
-﻿@model CProfesseur
+﻿@model TeacherParadise.Models.POCO.CEleve
 @{
     ViewData["Title"] = "Mon Profil";
-    CProfesseur prof = (CProfesseur)TempData["Prof"];
+    TeacherParadise.Models.POCO.CEleve eleve = (TeacherParadise.Models.POCO.CEleve)TempData["Eleve"];
 }
-<!--
-    Projet scolaire HEPH Condorcet 2019-2020
-    Made by Simon Jonathan
-    -->
+
 <h1>@ViewData["Title"]</h1>
 
 @{
-    if(prof == null) {
+    if(eleve == null) {
         <label> Une erreur est survenu lors du chargement de votre profil, veillez réessayer.</label>
     } else {
         <table>
@@ -19,7 +16,7 @@
                     <label asp-for="LastName"> </label>
                 </td>
                 <td>
-                    <label> @Html.DisplayFor(modelItem => prof.LastName) </label>
+                    <label> @Html.DisplayFor(modelItem => eleve.LastName) </label>
                 </td>
             </tr>
             <tr>
@@ -27,7 +24,7 @@
                     <label asp-for="SurName"> </label>
                 </td>
                 <td>
-                    <label> @Html.DisplayFor(modelItem => prof.SurName) </label>
+                    <label> @Html.DisplayFor(modelItem => eleve.SurName) </label>
                 </td>
             </tr>
             <tr>
@@ -35,7 +32,7 @@
                     <label asp-for="DoB"> </label>
                 </td>
                 <td>
-                    <label> @Html.DisplayFor(modelItem => prof.DoB) </label>
+                    <label> @Html.DisplayFor(modelItem => eleve.DoB) </label>
                 </td>
             </tr>
             <tr>
@@ -43,7 +40,7 @@
                     <label asp-for="Email"> </label>
                 </td>
                 <td>
-                    <label> @Html.DisplayFor(modelItem => prof.Email) </label>
+                    <label> @Html.DisplayFor(modelItem => eleve.Email) </label>
                 </td>
             </tr>
             <tr>
@@ -51,7 +48,7 @@
                     <label asp-for="PhoneNumber"> </label>
                 </td>
                 <td>
-                    <label> @Html.DisplayFor(modelItem => prof.PhoneNumber) </label>
+                    <label> @Html.DisplayFor(modelItem => eleve.PhoneNumber) </label>
                 </td>
             </tr>
             <tr>

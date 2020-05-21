@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\Code\\TeacherParadise\\TeacherParadise\\TeacherParadise.csproj": {}
+    "C:\\Users\\User\\Documents\\GitHub\\ASP.NET-HEPH-Condorcet\\Code\\TeacherParadise\\TeacherParadise\\TeacherParadise.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\Code\\TeacherParadise\\TeacherParadise\\TeacherParadise.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\ASP.NET-HEPH-Condorcet\\Code\\TeacherParadise\\TeacherParadise\\TeacherParadise.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\Code\\TeacherParadise\\TeacherParadise\\TeacherParadise.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\ASP.NET-HEPH-Condorcet\\Code\\TeacherParadise\\TeacherParadise\\TeacherParadise.csproj",
         "projectName": "TeacherParadise",
-        "projectPath": "C:\\Users\\User\\Desktop\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\Code\\TeacherParadise\\TeacherParadise\\TeacherParadise.csproj",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\ASP.NET-HEPH-Condorcet\\Code\\TeacherParadise\\TeacherParadise\\TeacherParadise.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\ASP.NET-HEPH-Condorcet-jonathanv0.1.1\\Code\\TeacherParadise\\TeacherParadise\\obj\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\ASP.NET-HEPH-Condorcet\\Code\\TeacherParadise\\TeacherParadise\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
