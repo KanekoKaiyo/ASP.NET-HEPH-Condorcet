@@ -13,11 +13,9 @@ namespace TeacherParadise.Controllers
 {
     public class StudentController : Controller
     {
-        private readonly ICoursCollectifDAL _coursCollectifDAL;
         private readonly IEleveDal _elevedal;
 
-        public StudentController(ICoursCollectifDAL coursCollectifDAL,IEleveDal EleveDal) {
-            _coursCollectifDAL = coursCollectifDAL;
+        public StudentController(IEleveDal EleveDal) {
             _elevedal = EleveDal;
         }
         private bool VerifSession() {
@@ -32,19 +30,9 @@ namespace TeacherParadise.Controllers
             return View();
         }
 
-        public IActionResult ListCourCollectif() {
-            if(VerifSession())
-                return RedirectToAction("Index","Home");
-            int ID = HttpContext.Session.GetInt32("IDE").GetValueOrDefault();
-            CatCoursCollectif cours = CatCoursCollectif.Instance(ID,_coursCollectifDAL);
-            TempData["CoursC"] = cours;
-            return View();
-        }
-
-
-        [HttpPost]
+        [HttpGet]
         
-        public IActionResult MonProfil() {
+        public IActionResult MonProfilE() {
             if(VerifSession())
                 return RedirectToAction("Index","Home");
 
@@ -66,7 +54,7 @@ namespace TeacherParadise.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult ModifyProfil(CEleve eleve_) {
             if(VerifSession())
                 return RedirectToAction("Index","Home");
@@ -79,7 +67,7 @@ namespace TeacherParadise.Controllers
                 TempData["Error"] = true;
                 return View(eleve_);
             } else {
-                return RedirectToAction("MonProfil");
+                return RedirectToAction("MonProfilE");
             }
 
         }

@@ -1,6 +1,6 @@
 ﻿@model TeacherParadise.Models.POCO.CEleve
 @{
-    ViewData["Title"] = "Mon Profil";
+    ViewData["Title"] = "My Profile";
     TeacherParadise.Models.POCO.CEleve eleve = (TeacherParadise.Models.POCO.CEleve)TempData["Eleve"];
 }
 
@@ -8,7 +8,7 @@
 
 @{
     if(eleve == null) {
-        <label> Une erreur est survenu lors du chargement de votre profil, veillez réessayer.</label>
+    <label> an error occured, please try again </label>
     } else {
         <table>
             <tr>

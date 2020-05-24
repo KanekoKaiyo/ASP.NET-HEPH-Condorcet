@@ -19,5 +19,7 @@ namespace TeacherParadise.Models.POCO
         public DateTime DateRes { get; set; }
         //constructeur
         public CReservationCoursCollectif() { }
+        //va récupérer tout les cours du catalogue.
+
     }
 }

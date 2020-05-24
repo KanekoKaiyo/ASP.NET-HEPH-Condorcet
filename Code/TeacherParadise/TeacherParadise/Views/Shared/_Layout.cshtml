@@ -5,6 +5,7 @@
     <!--
     Projet scolaire HEPH Condorcet 2019-2020
     Made by Simon Jonathan
+        update by Rousseaux Mikel
     -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,6 +36,12 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-controller="Home" asp-action="TeacherLogin"> Connexion Professeur </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Home" asp-action="StudentInscription"> Student registration </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Home" asp-action="StudentLogin"> Student Login </a>
                                 </li>
                             </ul>
                         </div>
@@ -87,13 +94,10 @@
                                     <a class="nav-link text-dark" asp-controller="Student" asp-action="Index">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="Student" asp-action="ListCourCollectif">Mes Cours Collectifs</a>
+                                    <a class="nav-link text-dark" asp-controller="Student" asp-action="MonProfilE">My Profile</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="Student" asp-action="AfficheConge">Mes congés</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="Student" asp-action="MonProfil">Mon Profil</a>
+                                    <a class="nav-link text-dark" asp-controller="Student" asp-action="Reservation">Book a lesson</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-controller="Student" asp-action="Deconnexion">Déconnexion</a>
@@ -114,7 +118,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - TeacherParadise - Simon Jonathan CopyRight.
+            &copy; 2020 - TeacherParadise - Simon Jonathan CopyRight ,update and corrected by Rousseaux Mikel.
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

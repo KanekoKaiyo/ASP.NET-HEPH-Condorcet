@@ -24,14 +24,10 @@ namespace TeacherParadise.Controllers {
         // Dal Loader
         private readonly IProfesseurDAL _professeurDAL;
         private readonly IEleveDal _eleveDal;
-        public HomeController(IProfesseurDAL professeurDal) {
+        public HomeController(IProfesseurDAL professeurDal, IEleveDal eleveDal) {
             _professeurDAL = professeurDal;
-        }
-        public HomeController(IEleveDal eleveDal)
-        {
             _eleveDal = eleveDal;
         }
-
         // IActionResult
         public IActionResult Index() {
             if(String.IsNullOrEmpty(HttpContext.Session.GetString("UserType"))) {
@@ -74,7 +70,8 @@ namespace TeacherParadise.Controllers {
             else
             {
                 HttpContext.Session.SetString("UserType", "Eleve");
-                HttpContext.Session.SetInt32("IDE", eleve.ID);
+                HttpContext.Session.SetInt32("IDE", eleves.ID);
+
                 return RedirectToAction("Index", "Student");
             }
 
@@ -112,14 +109,11 @@ namespace TeacherParadise.Controllers {
         [HttpPost]
         public IActionResult StudentInscription(CEleve eleve)
         {
-            // Vérification de l'inscription de l'utilisateur : 1) vérifie si le model est correcte 2) vérifie si cella est possible en appelant une méthode de la classe poco qui appel la classe dal ( voir commentaire dans les autres fichiers pour plus de détails )
             if (ModelState.IsValid)
             {
-                //TODO Modifier le mot de passe pour le sécurisé avant de le mettre dans la base de donnée !!!!!
                 CEleve eleves = eleve.AjoutEleve(eleve, _eleveDal);
                 if (eleves == null)
                 {
-                    // Création du compte impossible car l'email est déjà utilisé
                     TempData["Error"] = "Email";
                     return View(eleve);
                 }

@@ -42,7 +42,7 @@ namespace TeacherParadise.Models.DAL
             }
             else
             {
-                return eleve;
+                return el;
             }
         }
 

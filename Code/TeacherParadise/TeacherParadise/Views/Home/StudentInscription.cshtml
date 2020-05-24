@@ -1,14 +1,14 @@
-﻿@model TeacherParadise.Models.CEleve
+﻿@model TeacherParadise.Models.POCO.CEleve
 @{
-    ViewData["Title"] = "Inscription en tant que professeur";
+    ViewData["Title"] = "Student Registration";
 
 }
 <h1>@ViewData["Title"]</h1>
 
 @if((string)TempData["Error"] == "Error") {
-    <span class="alert-danger"> Une erreur est survenue, veillez recommencer </span>
+    <span class="alert-danger"> an error occured , please try again </span>
 } else if((string)TempData["Error"] == "Email") {
-    <span class="alert-danger"> Une erreur est survenue, L'email est déjà utilisé </span>
+    <span class="alert-danger"> An error occured, The email is already in use. </span>
 }
 
 <form method="post" asp-action="StudentInscription">
@@ -81,7 +81,7 @@
         </tr>
         <tr>
             <td>
-                <a asp-action="Index"> Retour </a>
+                <a asp-action="Index"> Back </a>
             </td>
             <td colspan="2">
                 <input type="submit" />

@@ -1,11 +1,13 @@
-﻿@model CEleve
+﻿@model TeacherParadise.Models.POCO.CEleve
+
 @{
-    ViewData["Title"] = "Connexion en tant que professeur";
+    ViewData["Title"] = "Student connection";
 }
 
 <h1>@ViewData["Title"]</h1>
-@if((bool)TempData["Error"] == true) {
-    <label class="alert-danger"> Une erreur est survenue lors de votre tentative de connexion ! Vérifiez vos informations et recommencer </label>
+@if ((bool)TempData["Error"] == true)
+{
+<label class="alert-danger"> wrong login/pswd combination. Check your information and try again </label>
 }
 
 <form method="post" asp-action="StudentLogin">

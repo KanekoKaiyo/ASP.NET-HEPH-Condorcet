@@ -13,7 +13,8 @@ using TeacherParadise.DAL;
 using TeacherParadise.Models.DAL;
 /* 
     Projet scolaire HEPH Condorcet 2019-2020
-    Made by Simon Jonathan        
+    Made by Simon Jonathan
+        update by Rousseaux Mikel 
 */
 namespace TeacherParadise {
     public class Startup {
@@ -34,6 +35,8 @@ namespace TeacherParadise {
             services.AddTransient<IProfesseurDAL,ProfesseurDAL>();
             services.AddTransient<ICoursCollectifDAL,CoursCollectifDAL>();
             services.AddTransient<ICongeDAL, CongeDAL>();
+            services.AddTransient<IEleveDal, EleveDAL>();
+            
 
             // Services pour les sessions
             services.AddDistributedMemoryCache();

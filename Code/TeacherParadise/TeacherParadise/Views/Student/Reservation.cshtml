@@ -1,0 +1,15 @@
+﻿@model TeacherParadise.Models.POCO.CReservationCoursCollectif
+
+@{ ViewData["Title"] = "Book a lesson";
+    TeacherParadise.Models.POCO.CEleve eleve = (TeacherParadise.Models.POCO.CEleve)TempData["Eleve"]; }
+
+<h1>@ViewData["Title"]</h1>
+
+@{ if (eleve == null)
+    {
+        <label> Null an error occured, please try again </label> 
+    }
+    else
+    {
+        <label> Else an error occured, please try again </label> }
+    }

@@ -1,6 +1,6 @@
 ﻿@model TeacherParadise.Models.POCO.CEleve
 @{
-    ViewData["Title"] = "Modifier mon Profil";
+    ViewData["Title"] = "Edit my profile";
     TeacherParadise.Models.POCO.CEleve eleve = (TeacherParadise.Models.POCO.CEleve)TempData["Eleve"];
 }
 
@@ -8,7 +8,7 @@
 
 @{
     if(eleve == null) {
-        <label> Une erreur est survenu lors du chargement de votre profil, veillez réessayer.</label>
+    <label>an error occured, please try again </label>
     } else {
         <form asp-action="ModifyProfil" method="post">
             <table>
@@ -80,7 +80,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a asp-action="MonProfil"> Retour </a>
+                        <a asp-action="MonProfilE"> Retour </a>
                     </td>
                     <td colspan="2">
                         <input type="submit" />
